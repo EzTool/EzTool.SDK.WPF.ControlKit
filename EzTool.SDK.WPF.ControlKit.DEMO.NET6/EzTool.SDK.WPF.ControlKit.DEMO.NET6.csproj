@@ -5,8 +5,12 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
-		<RootNamespace>EzTool.SDK.WPF.ControlKit.DEMO</RootNamespace>
+		<RootNamespace>EzTool.SDK.WPF.ControlKit</RootNamespace>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="EzTool.SDK.WPF.Unicorn.Plus" Version="1.0.4" />
+	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\EzTool.SDK.WPF.ControlKit.NET6\EzTool.SDK.WPF.ControlKit.NET6.csproj" />

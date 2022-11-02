@@ -1,6 +1,4 @@
-﻿using EzTool.SDK.WPF.ControlKit.WindowKit;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EzTool.SDK.WPF.ControlKit.DEMO.NET6
+namespace EzTool.SDK.WPF.ControlKit.DEMO.Main
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class MainWindow : EzWindow
+    public partial class MainView : UserControl
     {
-        public MainWindow()
+        public MainView()
         {
             InitializeComponent();
         }
