@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:WindowKit ="clr-namespace:EzTool.SDK.WPF.ControlKit.WindowKit;assembly=EzTool.SDK.WPF.ControlKit"
         xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.EzWindow"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
         Title="EzWindowView" Height="450" Width="800">
     <Grid Background="Gray">
         <Button Width="125" Height="35" />

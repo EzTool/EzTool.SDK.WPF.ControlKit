@@ -8,59 +8,60 @@ namespace EzTool.SDK.WPF.ControlKit.WindowKit
     {
         private class WindowCommandHelper
         {
+            #region -- 變數宣告 ( Declarations ) --   
+
             private readonly Window _window;
+
+            #endregion
+
+            #region -- 建構/解構 ( Constructors/Destructor ) --
 
             public WindowCommandHelper(Window window)
             {
                 _window = window;
             }
 
-            public void ActiveCommands()
-            {
-                _window.CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, CloseWindow));
-                _window.CommandBindings.Add(new CommandBinding(SystemCommands.MaximizeWindowCommand, MaximizeWindow, CanResizeWindow));
-                _window.CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand, MinimizeWindow, CanMinimizeWindow));
-                _window.CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand, RestoreWindow, CanResizeWindow));
-                _window.CommandBindings.Add(new CommandBinding(SystemCommands.ShowSystemMenuCommand, ShowSystemMenu));
-            }
+            #endregion
 
-            private void CanResizeWindow(object sender, CanExecuteRoutedEventArgs e)
+            #region -- 事件處理 ( Event Handlers ) --
+
+            private void OnCanResizeWindow(object sender, CanExecuteRoutedEventArgs e)
             {
                 e.CanExecute = _window.ResizeMode == ResizeMode.CanResize || _window.ResizeMode == ResizeMode.CanResizeWithGrip;
             }
 
-            private void CanMinimizeWindow(object sender, CanExecuteRoutedEventArgs e)
+            private void OnCanMinimizeWindow(object sender, CanExecuteRoutedEventArgs e)
             {
                 e.CanExecute = _window.ResizeMode != ResizeMode.NoResize;
             }
 
-            private void CloseWindow(object sender, ExecutedRoutedEventArgs e)
+            private void OnCloseWindow(object sender, ExecutedRoutedEventArgs e)
             {
                 _window.Close();
             }
 
-            private void MaximizeWindow(object sender, ExecutedRoutedEventArgs e)
+            private void OnMaximizeWindow(object sender, ExecutedRoutedEventArgs e)
             {
                 SystemCommands.MaximizeWindow(_window);
                 e.Handled = true;
             }
 
-            private void MinimizeWindow(object sender, ExecutedRoutedEventArgs e)
+            private void OnMinimizeWindow(object sender, ExecutedRoutedEventArgs e)
             {
                 SystemCommands.MinimizeWindow(_window);
                 e.Handled = true;
             }
 
-            private void RestoreWindow(object sender, ExecutedRoutedEventArgs e)
+            private void OnRestoreWindow(object sender, ExecutedRoutedEventArgs e)
             {
                 SystemCommands.RestoreWindow(_window);
                 e.Handled = true;
             }
 
-            private void ShowSystemMenu(object sender, ExecutedRoutedEventArgs e)
+            private void OnShowSystemMenu(object sender, ExecutedRoutedEventArgs e)
             {
                 Point point = _window.PointToScreen(new Point(0, 0));
-                var dipScale = WindowParameters.GetDpi() / 96d;
+                var dipScale = WindowParameters.DpiX / 96d;
                 if (_window.WindowState == WindowState.Maximized)
                 {
                     // 因为不想在最大化时改变标题高度，所以这里的计算方式和标准计算方式不一样
@@ -81,6 +82,22 @@ namespace EzTool.SDK.WPF.ControlKit.WindowKit
                 SystemCommands.ShowSystemMenu(_window, compositionTarget.TransformFromDevice.Transform(point));
                 e.Handled = true;
             }
+
+            #endregion
+
+            #region -- 方法 ( Public Method ) --
+
+            public void ActiveCommands()
+            {
+                _window.CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, OnCloseWindow));
+                _window.CommandBindings.Add(new CommandBinding(SystemCommands.MaximizeWindowCommand, OnMaximizeWindow, OnCanResizeWindow));
+                _window.CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand, OnMinimizeWindow, OnCanMinimizeWindow));
+                _window.CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand, OnRestoreWindow, OnCanResizeWindow));
+                _window.CommandBindings.Add(new CommandBinding(SystemCommands.ShowSystemMenuCommand, OnShowSystemMenu));
+            }
+
+            #endregion
+
         }
 
     }

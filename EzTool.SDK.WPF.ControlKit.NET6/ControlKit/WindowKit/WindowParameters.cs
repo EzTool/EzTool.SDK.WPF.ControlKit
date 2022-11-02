@@ -1,5 +1,6 @@
 ﻿using EzTool.SDK.WPF.Utilities.Common;
 
+using System;
 using System.Reflection;
 using System.Security;
 using System.Windows;
@@ -26,34 +27,49 @@ namespace EzTool.SDK.WPF.ControlKit.WindowKit
                 if (_paddedBorderThickness == null)
                 {
                     var paddedBorder = NativeMethods.GetSystemMetrics(SM.CXPADDEDBORDER);
-                    var dpi = GetDpi();
+                    var objDpiX = DpiX;
                     Size frameSize = new Size(paddedBorder, paddedBorder);
-                    Size frameSizeInDips = DpiHelper.DeviceSizeToLogical(frameSize, dpi / 96.0, dpi / 96.0);
-                    _paddedBorderThickness = new Thickness(frameSizeInDips.Width, frameSizeInDips.Height, frameSizeInDips.Width, frameSizeInDips.Height);
+                    Size frameSizeInDips = DpiHelper.DeviceSizeToLogical(frameSize, objDpiX / 96.0, objDpiX / 96.0);
+
+                    _paddedBorderThickness =
+                        new Thickness(
+                            frameSizeInDips.Width, frameSizeInDips.Height,
+                            frameSizeInDips.Width, frameSizeInDips.Height);
                 }
 
                 return _paddedBorderThickness.Value;
             }
         }
+
         public static double RibbonContextualTabGroupHeight
         {
-
             get
             {
                 if (_ribbonContextualTabGroupHeight == null)
                 {
-                    _ribbonContextualTabGroupHeight = SystemParameters.WindowNonClientFrameThickness.Top + (1d * GetDpi() / 96.0);
+                    _ribbonContextualTabGroupHeight = SystemParameters.WindowNonClientFrameThickness.Top + (1d * DpiX / 96.0);
                 }
 
                 return _ribbonContextualTabGroupHeight.Value;
             }
         }
-        public static double GetDpi()
-        {
-            var dpiXProperty = typeof(SystemParameters).GetProperty("DpiX", BindingFlags.NonPublic | BindingFlags.Static);
 
-            var dpiX = (int)dpiXProperty.GetValue(null, null);
-            return dpiX;
+        public static double DpiX
+        {
+            get
+            {
+                var dReturn = 96d;
+                var objDpiXProperty = typeof(SystemParameters).GetProperty("DpiX", BindingFlags.NonPublic | BindingFlags.Static);
+
+                if (objDpiXProperty != null)
+                {
+                    var objPropertyValue = objDpiXProperty.GetValue(null, null);
+
+                    dReturn = objPropertyValue != null ? (int)objPropertyValue : dReturn;
+                }
+
+                return dReturn;
+            }
         }
 
         #endregion
