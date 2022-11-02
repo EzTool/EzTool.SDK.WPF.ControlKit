@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<AssemblyName>EzTool.SDK.WPF.ControlKit</AssemblyName>
+		<RootNamespace>EzTool.SDK.WPF</RootNamespace>
+	</PropertyGroup>
+
+</Project>
