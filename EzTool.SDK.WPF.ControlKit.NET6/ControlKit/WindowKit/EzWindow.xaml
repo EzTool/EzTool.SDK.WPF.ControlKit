@@ -128,7 +128,7 @@
     <Style x:Key="RestoreButtonStyle"
            TargetType="Button"
            BasedOn="{StaticResource WindowTitleBarButtonStyle}">
-        <Setter  Property="ToolBar.ToolTip"
+        <Setter  Property="ToolBar.ToolTip" 
                  Value="Restore" />
         <Setter Property="ContentTemplate"
                 Value="{StaticResource RestoreWhite}" />
@@ -157,7 +157,6 @@
         <Setter Property="Command"
                 Value="{Binding Source={x:Static SystemCommands.CloseWindowCommand}}" />
     </Style>
-
 
     <Style TargetType="{x:Type local:EzWindow}">        
         <Setter Property="Foreground"
@@ -212,7 +211,6 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="{TemplateBinding Icon}"
                                            VerticalAlignment="Center"
@@ -230,8 +228,6 @@
                                             </Behaviors:EventTrigger>
                                         </Behaviors:Interaction.Triggers>
                                     </Image>
-
-
                                     <ContentControl IsTabStop="False"
                                                     Margin="5,0,0,0"
                                                     Foreground="White"
@@ -279,8 +275,68 @@
                                         WindowChrome.ResizeGripDirection="BottomRight" />
                         </Grid>
                     </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsNonClientActive"
+                                 Value="False">
+                            <Setter Property="BorderBrush"
+                                    Value="#FF6F7785" />
+                        </Trigger>
+                        <Trigger Property="WindowState"
+                                 Value="Maximized">
+                            <Setter TargetName="MaximizeButton"
+                                    Property="Visibility"
+                                    Value="Collapsed" />
+                            <Setter TargetName="RestoreButton"
+                                    Property="Visibility"
+                                    Value="Visible" />
+                            <Setter TargetName="WindowBorder"
+                                    Property="BorderThickness"
+                                    Value="0" />
+                            <Setter TargetName="WindowBorder"
+                                    Property="Padding"
+                                    Value="{x:Static SystemParameters.WindowResizeBorderThickness}" />
+                            <Setter Property="Margin"
+                                    TargetName="LayoutRoot"
+                                    Value="{x:Static local:WindowParameters.PaddedBorderThickness}" />
+                        </Trigger>
+                        <Trigger Property="WindowState"
+                                 Value="Normal">
+                            <Setter TargetName="MaximizeButton"
+                                    Property="Visibility"
+                                    Value="Visible" />
+                            <Setter TargetName="RestoreButton"
+                                    Property="Visibility"
+                                    Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="ResizeMode"
+                                 Value="NoResize">
+                            <Setter TargetName="MinimizeButton"
+                                    Property="Visibility"
+                                    Value="Collapsed" />
+                            <Setter TargetName="MaximizeButton"
+                                    Property="Visibility"
+                                    Value="Collapsed" />
+                            <Setter TargetName="RestoreButton"
+                                    Property="Visibility"
+                                    Value="Collapsed" />
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ResizeMode"
+                                           Value="CanResizeWithGrip" />
+                                <Condition Property="WindowState"
+                                           Value="Normal" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ResizeGrip"
+                                    Property="Visibility"
+                                    Value="Visible" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+    
 </ResourceDictionary>
