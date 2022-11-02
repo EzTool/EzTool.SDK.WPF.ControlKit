@@ -6,6 +6,7 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<RootNamespace>EzTool.SDK.WPF.ControlKit</RootNamespace>
+		<IncludePackageReferencesDuringMarkupCompilation>false</IncludePackageReferencesDuringMarkupCompilation>
 	</PropertyGroup>
 
 	<ItemGroup>

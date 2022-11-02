@@ -6,6 +6,11 @@
 		<UseWPF>true</UseWPF>
 		<AssemblyName>EzTool.SDK.WPF.ControlKit</AssemblyName>
 		<RootNamespace>EzTool.SDK.WPF</RootNamespace>
+		<IncludePackageReferencesDuringMarkupCompilation>false</IncludePackageReferencesDuringMarkupCompilation>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+	</ItemGroup>
 
 </Project>
