@@ -43,7 +43,6 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.EzWindow
 
         }
 
-
         public void ShowDialog()
         {
             var objDataContext = new EzWindowViewContext()

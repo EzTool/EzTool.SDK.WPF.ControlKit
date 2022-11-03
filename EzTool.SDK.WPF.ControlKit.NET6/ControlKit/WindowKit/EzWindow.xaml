@@ -209,10 +209,12 @@
                                   Background="{TemplateBinding BorderBrush}"
                                   Margin="0,-1,0,0">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Grid.Column="0" 
+                                            Orientation="Horizontal">
                                     <Image Source="{TemplateBinding Icon}"
                                            VerticalAlignment="Center"
                                            Margin="5,0,0,0"
@@ -237,16 +239,25 @@
                                                     FontSize="{DynamicResource {x:Static SystemFonts.CaptionFontSizeKey}}"
                                                     Content="{TemplateBinding Title}" />
                                 </StackPanel>
-                                <StackPanel x:Name="WindowCommandButtonsPanel"
-                                            Grid.Column="1"
-                                            HorizontalAlignment="Right"
+                                <StackPanel Grid.Column="1"
+                                            HorizontalAlignment="Right"                                            
                                             VerticalAlignment="Stretch"
                                             Background="Transparent"
                                             Orientation="Horizontal"
                                             WindowChrome.IsHitTestVisibleInChrome="True"
                                             Margin="0,0,-1,0">
-                                    <ContentPresenter Content="{Binding FunctionBar, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
+                                    <ContentPresenter Grid.Column="1" 
+                                                      Content="{Binding FunctionBar, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"                                                                                                            
                                                       Focusable="False" />
+                                </StackPanel>
+                                <StackPanel x:Name="WindowCommandButtonsPanel"
+                                            Grid.Column="2"
+                                            HorizontalAlignment="Right"                                            
+                                            VerticalAlignment="Stretch"
+                                            Background="Transparent"
+                                            Orientation="Horizontal"
+                                            WindowChrome.IsHitTestVisibleInChrome="True"
+                                            Margin="0,0,-1,0">
                                     <Button x:Name="MinimizeButton"
                                             Style="{StaticResource MinimizeButtonStyle}" />
                                     <Grid Margin="1,0,1,0">
