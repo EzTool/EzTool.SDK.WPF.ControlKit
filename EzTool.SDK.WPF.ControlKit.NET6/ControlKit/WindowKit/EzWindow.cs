@@ -15,6 +15,19 @@ namespace EzTool.SDK.WPF.ControlKit.WindowKit
 
         #region -- 屬性 ( Properties ) --
 
+        #region FunctionBar
+
+        //public WindowFunctionBar FunctionBar
+        //{
+        //    get => (WindowFunctionBar)GetValue(FunctionBarProperty);
+        //    set => SetValue(FunctionBarProperty, value);
+        //}
+
+        //public static readonly DependencyProperty FunctionBarProperty =
+        //  DependencyProperty.Register(nameof(FunctionBar), typeof(WindowFunctionBar), typeof(EzWindow), new PropertyMetadata(default(WindowFunctionBar), OnFunctionBarChanged));
+
+        #endregion
+
         #region IsNonClientActive
 
         public bool IsNonClientActive
