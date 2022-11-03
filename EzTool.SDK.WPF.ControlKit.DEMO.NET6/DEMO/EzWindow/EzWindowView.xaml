@@ -1,13 +1,20 @@
 ﻿<WindowKit:EzWindow x:Class="EzTool.SDK.WPF.ControlKit.DEMO.EzWindow.EzWindowView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:WindowKit ="clr-namespace:EzTool.SDK.WPF.ControlKit.WindowKit;assembly=EzTool.SDK.WPF.ControlKit"
-        xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.EzWindow"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
-        Title="EzWindowView" Height="450" Width="800">
-    <Grid Background="Gray">
-        <Button Width="125" Height="35" />
-    </Grid>
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:WindowKit ="clr-namespace:EzTool.SDK.WPF.ControlKit.WindowKit;assembly=EzTool.SDK.WPF.ControlKit"
+                    xmlns:FunctionKit="clr-namespace:EzTool.SDK.WPF.ControlKit.FunctionBarKit;assembly=EzTool.SDK.WPF.ControlKit"
+                    xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.EzWindow"
+                    mc:Ignorable="d" WindowStartupLocation="CenterScreen"                     
+                    Title="EzWindowView" Height="450" Width="800">
+    <WindowKit:EzWindow.FunctionBar>
+        <FunctionKit:WindowFunctionBar>
+            <Button Content="MSG" 
+                    Command="{Binding RelayCommand}" 
+                    CommandParameter="EzWindowViewFunctionBarNotifyMsgEvent" />
+            <Separator />           
+        </FunctionKit:WindowFunctionBar>
+    </WindowKit:EzWindow.FunctionBar>
+    <Grid x:Name="AppGrid" />
 </WindowKit:EzWindow>
