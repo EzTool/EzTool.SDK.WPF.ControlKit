@@ -1,6 +1,7 @@
 ﻿using EzTool.SDK.WPF.ControlKit.FunctionBarKit;
 
 using System.Windows;
+using System.Windows.Media;
 
 namespace EzTool.SDK.WPF.ControlKit.WindowKit
 {
@@ -22,12 +23,12 @@ namespace EzTool.SDK.WPF.ControlKit.WindowKit
         /// </summary>
         /// <param name="oldValue">FunctionBar 属性的旧值。</param>
         /// <param name="newValue">FunctionBar 属性的新值。</param>
-        protected virtual void OnFunctionBarChanged(WindowFunctionBar oldValue, WindowFunctionBar newValue) { }
+        protected virtual void OnFunctionBarChanged(EzWindowFunctionBar oldValue, EzWindowFunctionBar newValue) { }
 
         private static void OnFunctionBarChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
         {
-            var oldValue = (WindowFunctionBar)args.OldValue;
-            var newValue = (WindowFunctionBar)args.NewValue;
+            var oldValue = (EzWindowFunctionBar)args.OldValue;
+            var newValue = (EzWindowFunctionBar)args.NewValue;
 
             if (oldValue != newValue && obj is EzWindow objWindow)
             {
@@ -39,19 +40,34 @@ namespace EzTool.SDK.WPF.ControlKit.WindowKit
 
         #region -- 屬性 ( Properties ) --
 
+        #region TitleBackground
+
+        public Brush TitleBarBackground
+        {
+            get { return (Brush)GetValue(TitleBackgroundProperty); }
+            set { SetValue(TitleBackgroundProperty, value); }
+        }
+
+        public static readonly DependencyProperty TitleBackgroundProperty =
+            DependencyProperty.Register(nameof(TitleBarBackground),
+                typeof(Brush), typeof(EzWindow),
+                new FrameworkPropertyMetadata(SystemColors.ActiveBorderBrush));
+
+        #endregion
+
         #region FunctionBar
 
-        public WindowFunctionBar FunctionBar
+        public EzWindowFunctionBar FunctionBar
         {
-            get => (WindowFunctionBar)GetValue(FunctionBarProperty);
+            get => (EzWindowFunctionBar)GetValue(FunctionBarProperty);
             set => SetValue(FunctionBarProperty, value);
         }
 
         public static readonly DependencyProperty FunctionBarProperty =
             DependencyProperty.Register(
                 nameof(FunctionBar),
-                typeof(WindowFunctionBar),
-                typeof(EzWindow), new PropertyMetadata(default(WindowFunctionBar), OnFunctionBarChanged));
+                typeof(EzWindowFunctionBar),
+                typeof(EzWindow), new PropertyMetadata(default(EzWindowFunctionBar), OnFunctionBarChanged));
 
         #endregion
 

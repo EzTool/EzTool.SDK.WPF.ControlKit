@@ -4,5 +4,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/FunctionBarKit/FunctionBar.xaml"/>
         <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/WindowKit/EzWindow.xaml"/>
+        <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/WindowKit/EzWindowFunctionBar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

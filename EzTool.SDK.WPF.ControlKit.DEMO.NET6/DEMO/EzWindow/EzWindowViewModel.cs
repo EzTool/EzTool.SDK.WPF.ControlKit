@@ -63,7 +63,7 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.EzWindow
                 ViewMask.Mount(objViewControl);
                 ViewWindow = new EzWindowView() { DataContext = objDataContext };
                 ViewWindow.AppGrid.Children.Add((UIElement)ViewMask.Container);
-                ViewWindow.ShowDialog();
+                ViewWindow.Show();
             });
         }
 

@@ -206,7 +206,7 @@
                             <Grid x:Name="WindowTitlePanel"
                                   Grid.Row="0"
                                   Height="{Binding Path=(SystemParameters.WindowNonClientFrameThickness).Top}"
-                                  Background="{TemplateBinding BorderBrush}"
+                                  Background="{Binding TitleBarBackground, RelativeSource={RelativeSource TemplatedParent}, Mode=Default}"
                                   Margin="0,-1,0,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />

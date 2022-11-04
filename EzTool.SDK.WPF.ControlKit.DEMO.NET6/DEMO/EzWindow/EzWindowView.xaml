@@ -4,13 +4,14 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     xmlns:WindowKit ="clr-namespace:EzTool.SDK.WPF.ControlKit.WindowKit;assembly=EzTool.SDK.WPF.ControlKit"
-                    xmlns:FunctionKit="clr-namespace:EzTool.SDK.WPF.ControlKit.FunctionBarKit;assembly=EzTool.SDK.WPF.ControlKit"
                     xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.EzWindow"
-                    mc:Ignorable="d" WindowStartupLocation="CenterScreen"     
-                    d:DataContext="{d:DesignInstance Type=local:EzWindowViewContext}"
-                    Title="EzWindowView" Height="450" Width="800">
-    <WindowKit:EzWindow.FunctionBar>        
-        <FunctionKit:WindowFunctionBar>
+                    mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
+                    ResizeMode="NoResize" 
+                    UseLayoutRounding="True"                     
+                    d:DataContext="{d:DesignInstance Type=local:EzWindowViewContext}"                    
+                    Title="EzWindowView" Height="450" Width="800">    
+    <WindowKit:EzWindow.FunctionBar>                
+        <WindowKit:EzWindowFunctionBar >
             <Button Content="MSG" 
                     Command="{Binding RelayCommand}" 
                     CommandParameter="EzWindowViewFunctionBarNotifyMsgEvent" />
@@ -38,7 +39,7 @@
                 </MenuItem>
             </Menu>
             <Separator />
-        </FunctionKit:WindowFunctionBar>
+        </WindowKit:EzWindowFunctionBar>
     </WindowKit:EzWindow.FunctionBar>
     <Grid x:Name="AppGrid" />
 </WindowKit:EzWindow>
