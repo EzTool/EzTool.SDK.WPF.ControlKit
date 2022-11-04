@@ -7,11 +7,23 @@
                     xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.EzWindow"
                     mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
                     ResizeMode="NoResize" 
+                    TitleBarBackground="#D04A02"
                     UseLayoutRounding="True"                     
                     d:DataContext="{d:DesignInstance Type=local:EzWindowViewContext}"                    
                     Title="EzWindowView" Height="450" Width="800">    
     <WindowKit:EzWindow.FunctionBar>                
         <WindowKit:EzWindowFunctionBar >
+            <Menu FontSize="12" FontFamily="Microsoft JhengHei">
+                <MenuItem Header="檔案" >
+                    <MenuItem Header="新增檔案" />
+                    <Separator />
+                    <MenuItem Header="常用檔案" >
+                        <MenuItem Header="檔案A" />
+                        <MenuItem Header="檔案B" />
+                    </MenuItem>
+                </MenuItem>
+            </Menu>           
+            <Separator />
             <Button Content="MSG" 
                     Command="{Binding RelayCommand}" 
                     CommandParameter="EzWindowViewFunctionBarNotifyMsgEvent" />
@@ -27,18 +39,6 @@
                            Fill="White" />
                 </Grid>
             </Button>
-            <Separator />
-            <Menu>
-                <MenuItem Header="檔案" >
-                    <MenuItem Header="新增檔案" />
-                    <Separator />
-                    <MenuItem Header="常用檔案" >
-                        <MenuItem Header="檔案A" />
-                        <MenuItem Header="檔案B" />
-                    </MenuItem>
-                </MenuItem>
-            </Menu>
-            <Separator />
         </WindowKit:EzWindowFunctionBar>
     </WindowKit:EzWindow.FunctionBar>
     <Grid x:Name="AppGrid" />
