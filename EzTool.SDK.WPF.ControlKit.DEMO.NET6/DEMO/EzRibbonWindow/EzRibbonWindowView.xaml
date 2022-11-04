@@ -1,12 +1,14 @@
 ﻿<WindowKit:EzRibbonWindow x:Class="EzTool.SDK.WPF.ControlKit.DEMO.EzRibbonWindow.EzRibbonWindowView"
-              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:WindowKit="clr-namespace:EzTool.SDK.WPF.ControlKit.WindowKit;assembly=EzTool.SDK.WPF.ControlKit"
-              xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.EzRibbonWindow"
-              mc:Ignorable="d"
-              Title="EzRibbonWindowView" Height="450" Width="800">
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:WindowKit="clr-namespace:EzTool.SDK.WPF.ControlKit.WindowKit;assembly=EzTool.SDK.WPF.ControlKit"
+                          xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.EzRibbonWindow"
+                          mc:Ignorable="d"
+                          TitleBarBackground="#D04A02"
+                          Title="EzRibbonWindowView" Height="450" Width="800"
+                          d:DataContext="{d:DesignInstance Type=local:EzRibbonWindowViewContext}">
     <WindowKit:EzRibbonWindow.FunctionBar>
         <WindowKit:EzWindowFunctionBar >
             <Menu FontSize="12" FontFamily="Microsoft JhengHei">
@@ -38,18 +40,24 @@
         </WindowKit:EzWindowFunctionBar>
     </WindowKit:EzRibbonWindow.FunctionBar>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <Ribbon x:Name="RibbonMenu"
                     VerticalAlignment="Top">
-            <RibbonTab Header="Home1" 
+            <RibbonTab Header="Home2" 
                        ContextualTabGroupHeader="Home">
                 <RibbonGroup Header="Copy">
                     <RibbonButton RibbonControlService.ToolTipTitle="Copy"
-                                  RibbonControlService.ToolTipDescription="Copy"
+                                  RibbonControlService.ToolTipDescription="Copy"  
+                                  Command="{Binding RelayCommand}"
+                                  CommandParameter="EzRibbonWindowCopyEven"
+                                  LargeImageSource="/EzTool.SDK.WPF.ControlKit.DEMO.NET6;component/_images/settings.png"
                                   Label="Copy" />
                 </RibbonGroup>
             </RibbonTab>
-            <RibbonTab Header="Home2" 
-                       ContextualTabGroupHeader="Home">
+            <RibbonTab Header="Home1" >
                 <RibbonGroup Header="Copy">
                     <RibbonButton RibbonControlService.ToolTipTitle="Copy"
                                   RibbonControlService.ToolTipDescription="Copy"
@@ -64,19 +72,20 @@
                                   Label="View" />
                 </RibbonGroup>
             </RibbonTab>
-
-            <Ribbon.ContextualTabGroups>
-                <RibbonContextualTabGroup Header="Home" 
+            <Ribbon.ContextualTabGroups>                
+                <RibbonContextualTabGroup Header="Home"
                                           Visibility="Visible" />
                 <RibbonContextualTabGroup Header="TestRibbonWindow"
-                                          Visibility="Visible" />              
+                                          Visibility="Visible" />
             </Ribbon.ContextualTabGroups>
             <Ribbon.QuickAccessToolBar>
                 <RibbonQuickAccessToolBar>
                     <RibbonButton SmallImageSource="/EzTool.SDK.WPF.ControlKit.DEMO.NET6;component/_images/defaulticon.png"/>
                     <RibbonButton SmallImageSource="/EzTool.SDK.WPF.ControlKit.DEMO.NET6;component/_images/defaulticon.png"/>
+                    <RibbonButton SmallImageSource="/EzTool.SDK.WPF.ControlKit.DEMO.NET6;component/_images/defaulticon.png"/>
                 </RibbonQuickAccessToolBar>
             </Ribbon.QuickAccessToolBar>           
         </Ribbon>
+        <Grid x:Name="AppGrid" Grid.Row="1" />
     </Grid>
 </WindowKit:EzRibbonWindow>

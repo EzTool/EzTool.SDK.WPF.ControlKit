@@ -11,15 +11,13 @@
 
 	<ItemGroup>
 	  <None Remove="_images\defaulticon.png" />
-	  <None Remove="_images\setting.jpg" />
+	  <None Remove="_images\setting.jfif" />
+	  <None Remove="_images\settings.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Resource Include="_images\defaulticon.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Resource Include="_images\setting.jpg" />
+	  <Resource Include="_images\settings.png" />
 	</ItemGroup>
 
 	<ItemGroup>
