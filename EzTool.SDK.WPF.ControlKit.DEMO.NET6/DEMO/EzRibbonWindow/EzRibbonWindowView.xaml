@@ -69,7 +69,7 @@
                 <RibbonContextualTabGroup Header="Home" 
                                           Visibility="Visible" />
                 <RibbonContextualTabGroup Header="TestRibbonWindow"
-                                          Visibility="Collapsed" />              
+                                          Visibility="Visible" />              
             </Ribbon.ContextualTabGroups>
             <Ribbon.QuickAccessToolBar>
                 <RibbonQuickAccessToolBar>
