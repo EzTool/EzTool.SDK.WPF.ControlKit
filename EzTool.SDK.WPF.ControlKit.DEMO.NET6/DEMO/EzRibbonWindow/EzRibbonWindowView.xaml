@@ -54,6 +54,7 @@
                                   Command="{Binding RelayCommand}"
                                   CommandParameter="EzRibbonWindowCopyEven"
                                   LargeImageSource="/EzTool.SDK.WPF.ControlKit.DEMO.NET6;component/_images/settings.png"
+                                  SmallImageSource="/EzTool.SDK.WPF.ControlKit.DEMO.NET6;component/_images/defaulticon.png"
                                   Label="Copy" />
                 </RibbonGroup>
             </RibbonTab>
