@@ -21,9 +21,13 @@
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical" Margin="3">
             <Button Width="125" Height="35" Margin="3"
-                    Content="開啟視窗"
+                    Content="開啟 EzWindow"
                     Command="{Binding RelayCommand}"
                     CommandParameter="MainViewPopupEzWindowEvent" />
+            <Button Width="125" Height="35" Margin="3"
+                    Content="開啟 EzRibbonWindow"
+                    Command="{Binding RelayCommand}"
+                    CommandParameter="MainViewPopupEzRibbonWindowEvent" />
         </StackPanel>
     </Grid>
 </UserControl>

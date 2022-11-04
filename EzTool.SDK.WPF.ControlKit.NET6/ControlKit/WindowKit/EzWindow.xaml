@@ -3,6 +3,10 @@
                     xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:Convertors="clr-namespace:EzTool.SDK.WPF.Utilities.Converters"
                     xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.WindowKit">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/WindowKit/EzWinRibbon.xaml" />        
+    </ResourceDictionary.MergedDictionaries>
+    
     <Convertors:EmptyObjectToVisibilityConverter x:Key="EmptyObjectToVisibilityConverter" />
 
     <DataTemplate x:Key="RestoreWhite">
