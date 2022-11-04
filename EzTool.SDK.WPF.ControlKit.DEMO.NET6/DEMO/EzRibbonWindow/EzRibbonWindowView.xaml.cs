@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Ribbon;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -17,7 +18,7 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.EzRibbonWindow
     /// <summary>
     /// Interaction logic for EzRibbonWindowView.xaml
     /// </summary>
-    public partial class EzRibbonWindowView : Window
+    public partial class EzRibbonWindowView : WindowKit.EzRibbonWindow
     {
         public EzRibbonWindowView()
         {
