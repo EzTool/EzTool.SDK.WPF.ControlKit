@@ -1,24 +1,25 @@
 ﻿using EzTool.SDK.Router.Core.Interface;
-using EzTool.SDK.WPF.ControlKit.DEMO.EzRibbonWindow.Events;
 using EzTool.SDK.WPF.ControlKit.DEMO.EzWindow;
+using EzTool.SDK.WPF.ControlKit.DEMO.EzWindow.Events;
 using EzTool.SDK.WPF.Mask;
 using EzTool.SDK.WPF.Mask.Core.Interfaces;
-using EzTool.SDK.WPF.Mask.HumbleObjects;
 using EzTool.SDK.WPF.Region.Core.Interfaces;
 using EzTool.SDK.WPF.Unicorn.BaseObjects;
+using EzTool.SDK.WPF.Unicorn.HumbleObjects;
 using EzTool.SDK.WPF.Unicorn.Utilities;
 using EzTool.SDK.WPF.ViewActions.Interface;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace EzTool.SDK.WPF.ControlKit.DEMO.EzRibbonWindow
+namespace EzTool.SDK.WPF.ControlKit.DEMO.NormalRibbonWindow
 {
-    public class EzRibbonWindowViewModel : IWindowView, IHostView, IDialogView
+    public class NormalRibbonWindowViewModel : IWindowView, IHostView, IDialogView
     {
 
         #region -- 變數宣告 ( Declarations ) --   
@@ -29,7 +30,7 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.EzRibbonWindow
 
         #region -- 屬性 ( Properties ) --
 
-        public EzRibbonWindowView ViewWindow { get; set; }
+        public NormalRibbonWindowView ViewWindow { get; set; }
         private MaskLayer ViewMask { get; set; }
         private IRegionHost RegionHost { get; set; }
 
@@ -42,27 +43,26 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.EzRibbonWindow
 
         public void ExitView()
         {
-
+            throw new NotImplementedException();
         }
+
 
         public void ShowDialog()
         {
-            var objDataContext = new EzRibbonWindowViewContext()
+            var objDataContext = new NormalRibbonWindowViewContext()
             {
                 Presenter = Presenter,
                 HashCode = GetHashCode().ToString(),
                 IsShowProgress = false
-            };
-            var objCopyEvent = new EzRibbonWindowCopyEven() { ViewContext = objDataContext };
+            };         
 
-            objDataContext.RelayCommand.Register(objCopyEvent);
             new DispatcherProxy().Invoke(() =>
             {
-                var objViewControl = ViewControlBuilder.Build<EzRibbonWindowMainView>(objDataContext);
+                var objViewControl = ViewControlBuilder.Build<EzWindowMainView>(objDataContext);
 
                 ViewMask = MaskLayer.Initial(objDataContext);
                 ViewMask.Mount(objViewControl);
-                ViewWindow = new EzRibbonWindowView() { DataContext = objDataContext };
+                ViewWindow = new NormalRibbonWindowView() { DataContext = objDataContext };
                 ViewWindow.AppGrid.Children.Add((UIElement)ViewMask.Container);
                 ViewWindow.Show();
             });
@@ -106,12 +106,11 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.EzRibbonWindow
             return this;
         }
 
-
         #endregion
 
         #region -- 介面實做 ( Implements ) - [IDialogView] --
 
-        public void Waitting()
+        public virtual void Waitting()
         {
             while (l_objIsWaiting.Invoke())
             {
@@ -120,13 +119,10 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.EzRibbonWindow
         }
 
         #endregion
-
     }
 
-    public class EzRibbonWindowViewContext : BaseViewContext
+    public class NormalRibbonWindowViewContext : BaseViewContext
     {
-        public IPresenter Presenter { get; set; }
         public string HashCode { get; set; }
-        public bool IsShowProgress { get; set; }
     }
 }
