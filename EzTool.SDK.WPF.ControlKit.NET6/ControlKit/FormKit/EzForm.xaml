@@ -2,10 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:Converts="clr-namespace:EzTool.SDK.WPF.Utilities.Converters"
                     xmlns:Common="clr-namespace:EzTool.SDK.WPF.Utilities.Common"
-                    xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.FormKit"
                     xmlns:Panel="clr-namespace:EzTool.SDK.WPF.ControlKit.PanelKit"
-                    xmlns:ScrollViewer="clr-namespace:EzTool.SDK.WPF.ControlKit.ScrollViewerKit"
-                    xmlns:PageTitle="clr-namespace:EzTool.SDK.WPF.ControlKit.PageTitleKit">
+                    xmlns:ScrollViewer="clr-namespace:EzTool.SDK.WPF.ControlKit.ScrollViewerKit" 
+                    xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.FormKit" >
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/FormKit/EzFormHeader.xaml" />
     </ResourceDictionary.MergedDictionaries>
