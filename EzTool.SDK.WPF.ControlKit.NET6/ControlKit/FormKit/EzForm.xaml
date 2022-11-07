@@ -6,6 +6,9 @@
                     xmlns:Panel="clr-namespace:EzTool.SDK.WPF.ControlKit.PanelKit"
                     xmlns:ScrollViewer="clr-namespace:EzTool.SDK.WPF.ControlKit.ScrollViewerKit"
                     xmlns:PageTitle="clr-namespace:EzTool.SDK.WPF.ControlKit.PageTitleKit">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/FormKit/EzFormHeader.xaml" />
+    </ResourceDictionary.MergedDictionaries>
     <Converts:NullToValueConverter x:Key="NullToValueConverter" />
     <Converts:EmptyObjectToVisibilityConverter x:Key="EmptyObjectToVisibilityConverter" />
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
@@ -143,8 +146,9 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>                           
-                            <PageTitle:EzPageTitle Content="{TemplateBinding Header}"
-                                                   ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                            <local:EzFormHeader Content="{TemplateBinding Header}"                                                
+                                                ContentTemplate="{TemplateBinding HeaderTemplate}" 
+                                                FontSize="{Binding HeaderFontSize, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"/>
                             <ScrollViewer:EzScrollViewer Grid.Row="1"
                                                          Padding="{TemplateBinding Padding}">
                                 <ItemsPresenter SnapsToDevicePixels="True"

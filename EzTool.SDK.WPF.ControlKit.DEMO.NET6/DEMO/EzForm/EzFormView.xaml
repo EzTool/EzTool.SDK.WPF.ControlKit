@@ -69,8 +69,9 @@
     <Grid>
         <WrapPanel x:Name="Root"
                    Grid.IsSharedSizeScope="True">
-            <FormKit:EzForm FontSize="16">
-                <FormKit:EzFormTitle Content="Form's Title"/>
+            <FormKit:EzForm FontSize="16" 
+                            HeaderFontSize="24"
+                            Header="Form's Header">                
                 <FormKit:EzFormItem Label="用戶姓名：" 
                                     Description="中文姓名"                                       
                                     IsRequired="True">

@@ -90,6 +90,20 @@ namespace EzTool.SDK.WPF.ControlKit.FormKit
 
         #region -- 屬性 ( Properties ) --
 
+        #region HeaderFontSize
+
+        public int HeaderFontSize
+        {
+            get => (int)GetValue(HeaderFontSizeProperty);
+            set => SetValue(HeaderFontSizeProperty, value);
+        }
+
+        public static readonly DependencyProperty HeaderFontSizeProperty =
+            DependencyProperty.RegisterAttached(nameof(HeaderFontSize),
+                typeof(int), typeof(EzForm), new FrameworkPropertyMetadata(18));
+
+        #endregion 
+
         #region FunctionBar
 
         public FormFunctionBar FunctionBar
