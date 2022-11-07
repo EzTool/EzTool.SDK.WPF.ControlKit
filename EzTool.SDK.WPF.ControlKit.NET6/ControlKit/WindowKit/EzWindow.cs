@@ -24,6 +24,7 @@ namespace EzTool.SDK.WPF.ControlKit.WindowKit
         /// <param name="oldValue">FunctionBar 屬性的原值。</param>
         /// <param name="newValue">FunctionBar 屬性的新值。</param>
         protected virtual void OnFunctionBarChanged(EzWindowFunctionBar oldValue, EzWindowFunctionBar newValue) { }
+        protected virtual void OnMainFunctionBarChanged(EzWindowFunctionBar oldValue, EzWindowFunctionBar newValue) { }
 
         private static void OnFunctionBarChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
         {
@@ -33,6 +34,17 @@ namespace EzTool.SDK.WPF.ControlKit.WindowKit
             if (oldValue != newValue && obj is EzWindow objWindow)
             {
                 objWindow?.OnFunctionBarChanged(oldValue, newValue);
+            }
+        }
+
+        private static void OnMainFunctionBarChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
+        {
+            var oldValue = (EzWindowFunctionBar)args.OldValue;
+            var newValue = (EzWindowFunctionBar)args.NewValue;
+
+            if (oldValue != newValue && obj is EzWindow objWindow)
+            {
+                objWindow?.OnMainFunctionBarChanged(oldValue, newValue);
             }
         }
 
@@ -68,6 +80,22 @@ namespace EzTool.SDK.WPF.ControlKit.WindowKit
                 nameof(FunctionBar),
                 typeof(EzWindowFunctionBar),
                 typeof(EzWindow), new PropertyMetadata(default(EzWindowFunctionBar), OnFunctionBarChanged));
+
+        #endregion
+
+        #region MainFunctionBar
+
+        public EzWindowFunctionBar MainFunctionBar
+        {
+            get => (EzWindowFunctionBar)GetValue(MainFunctionBarProperty);
+            set => SetValue(MainFunctionBarProperty, value);
+        }
+
+        public static readonly DependencyProperty MainFunctionBarProperty =
+            DependencyProperty.Register(
+                nameof(MainFunctionBar),
+                typeof(EzWindowFunctionBar),
+                typeof(EzWindow), new PropertyMetadata(default(EzWindowFunctionBar), OnMainFunctionBarChanged));
 
         #endregion
 

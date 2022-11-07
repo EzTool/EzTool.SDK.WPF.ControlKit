@@ -6,12 +6,32 @@
                     xmlns:WindowKit ="clr-namespace:EzTool.SDK.WPF.ControlKit.WindowKit;assembly=EzTool.SDK.WPF.ControlKit"
                     xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.EzWindow"
                     mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
-                    ResizeMode="NoResize" 
+                    ResizeMode="CanResize" 
                     TitleBarBackground="#D04A02"
-                    UseLayoutRounding="True"                     
+                    UseLayoutRounding="True"                   
+                    Icon="/EzTool.SDK.WPF.ControlKit.DEMO.NET6;component/_images/defaulticon.png"
                     d:DataContext="{d:DesignInstance Type=local:EzWindowViewContext}"                    
-                    Title="EzWindowView" Height="450" Width="800">    
-    <WindowKit:EzWindow.FunctionBar>                
+                    Title="EzWindowView" Height="450" Width="800">
+    <WindowKit:EzWindow.MainFunctionBar>
+        <WindowKit:EzWindowFunctionBar>
+            <Menu FontSize="12" FontFamily="Microsoft JhengHei">
+                <MenuItem Header="檔案" >
+                    <MenuItem Header="新增檔案" />
+                    <Separator />
+                    <MenuItem Header="常用檔案" >
+                        <MenuItem Header="檔案A" />
+                        <MenuItem Header="檔案B" />
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <Separator />
+            <Button Content="MSG" 
+                    Command="{Binding RelayCommand}" 
+                    CommandParameter="EzWindowViewFunctionBarNotifyMsgEvent" />
+            <Separator />
+        </WindowKit:EzWindowFunctionBar>
+    </WindowKit:EzWindow.MainFunctionBar>
+    <WindowKit:EzWindow.FunctionBar>
         <WindowKit:EzWindowFunctionBar >
             <Menu FontSize="12" FontFamily="Microsoft JhengHei">
                 <MenuItem Header="檔案" >
@@ -22,7 +42,7 @@
                         <MenuItem Header="檔案B" />
                     </MenuItem>
                 </MenuItem>
-            </Menu>           
+            </Menu>
             <Separator />
             <Button Content="MSG" 
                     Command="{Binding RelayCommand}" 
