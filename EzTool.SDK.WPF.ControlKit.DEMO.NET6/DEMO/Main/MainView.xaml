@@ -35,6 +35,11 @@
                     Content="開啟 NormalRibbonWindow"
                     Command="{Binding RelayCommand}"
                     CommandParameter="MainViewPopupNormalRibbonWindowEvent" />
+            <Button Width="185" Height="35" Margin="3"
+                    HorizontalContentAlignment="Left"
+                    Content="開啟 Form 範例"
+                    Command="{Binding RelayCommand}"
+                    CommandParameter="MainViewShowFormExampleEvent" />
         </StackPanel>
     </Grid>
 </UserControl>
