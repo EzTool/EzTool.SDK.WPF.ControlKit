@@ -6,16 +6,10 @@ using EzTool.SDK.WPF.Region.Core.Interfaces;
 using EzTool.SDK.WPF.Unicorn.BaseObjects;
 using EzTool.SDK.WPF.Unicorn.HumbleObjects;
 using EzTool.SDK.WPF.Unicorn.Utilities;
-using EzTool.SDK.WPF.Unicorn.Views.Master;
 using EzTool.SDK.WPF.ViewActions.Interface;
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace EzTool.SDK.WPF.ControlKit.DEMO.EzWindow
 {
