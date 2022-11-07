@@ -67,23 +67,23 @@
         </b:EventTrigger>
     </b:Interaction.Triggers>
     <Grid>
-        <StackPanel>
-            <WrapPanel x:Name="Root"
-                       Grid.IsSharedSizeScope="True">
-                <FormKit:EzForm FontSize="16">
-                    <FormKit:EzFormTitle Content="Form's Title"/>
-                    <FormKit:EzFormItem Label="用戶姓名：" 
-                                        Description="中文姓名"                                       
-                                        IsRequired="True">
-                        <TextBox Text="def" Width="126"/>
-                    </FormKit:EzFormItem>
-                    <FormKit:EzFormItem Label="用戶姓名：" 
-                                        Description="英文姓名"
-                                        IsRequired="False">
-                        <TextBox Text="def" Width="126"/>
-                    </FormKit:EzFormItem>
-                </FormKit:EzForm>
-            </WrapPanel>
-        </StackPanel>
+        <WrapPanel x:Name="Root"
+                   Grid.IsSharedSizeScope="True">
+            <FormKit:EzForm FontSize="16">
+                <FormKit:EzFormTitle Content="Form's Title"/>
+                <FormKit:EzFormItem Label="用戶姓名：" 
+                                    Description="中文姓名"                                       
+                                    IsRequired="True">
+                    <TextBox Text="def" 
+                             Width="126"/>
+                </FormKit:EzFormItem>
+                <FormKit:EzFormItem Label="用戶姓名：" 
+                                    Description="英文姓名"
+                                    IsRequired="False">
+                    <TextBox Text="def" 
+                             Width="126"/>
+                </FormKit:EzFormItem>
+            </FormKit:EzForm>
+        </WrapPanel>
     </Grid>
 </UserControl>
