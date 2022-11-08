@@ -93,6 +93,7 @@
                         </StackPanel>
                         <ContentPresenter Grid.Column="1"
                                           Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="Left"
                                           x:Name="ContentPresenter" />
                         <ContentPresenter Grid.Row="1"
                                           Grid.Column="1"

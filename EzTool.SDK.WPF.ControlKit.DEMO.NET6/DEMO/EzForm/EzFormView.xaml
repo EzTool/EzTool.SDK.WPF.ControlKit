@@ -9,9 +9,9 @@
              xmlns:PanelKit="clr-namespace:EzTool.SDK.WPF.ControlKit.PanelKit;assembly=EzTool.SDK.WPF.ControlKit"
              xmlns:FormKit="clr-namespace:EzTool.SDK.WPF.ControlKit.FormKit;assembly=EzTool.SDK.WPF.ControlKit"
              mc:Ignorable="d" 
-             Height="350" Width="400" Background="White"
+             Height="350" Width="700" Background="White"
              d:DataContext="{d:DesignInstance Type=local:EzFormViewContext}"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="FormKit:EzFormItem"
                x:Key="EditableFormItemStyle">
@@ -23,19 +23,32 @@
                                 <ColumnDefinition Width="Auto"
                                                   SharedSizeGroup="Header"
                                                   MinWidth="100" />
-                                <ColumnDefinition />
+                                <ColumnDefinition />                                
                             </Grid.ColumnDefinitions>
-                            <ContentPresenter Content="{TemplateBinding Label}"
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <ContentPresenter Grid.Row="0" 
+                                              Grid.Column="0" 
+                                              Content="{TemplateBinding Label}"
                                               VerticalAlignment="Center"
                                               HorizontalAlignment="Right"
                                               TextBlock.Foreground="#FF777777" />
-                            <TextBox Grid.Column="1"
+                            <TextBox Grid.Row="0" 
+                                     Grid.Column="1"
                                      Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Text}"
                                      Margin="{TemplateBinding Padding}"
                                      Width="300"
                                      x:Name="ContentPresenter"
                                      VerticalContentAlignment="Center"
                                      Height="25" />
+                            <ContentPresenter Grid.Row="1"
+                                              Grid.Column="1" Content="{TemplateBinding Description}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Left"
+                                              TextBlock.Foreground="#FF777777" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
