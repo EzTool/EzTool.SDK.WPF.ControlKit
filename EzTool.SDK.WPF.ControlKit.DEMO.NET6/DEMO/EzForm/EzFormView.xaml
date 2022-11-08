@@ -13,14 +13,8 @@
              d:DataContext="{d:DesignInstance Type=local:EzFormViewContext}"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <Style TargetType="FormKit:EzForm">
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
-                    Value="Disabled" />
-            <Setter Property="Grid.IsSharedSizeScope"
-                    Value="False" />
-        </Style>
         <Style TargetType="FormKit:EzFormItem"
-               x:Key="HorizontalFormItemStyle">
+               x:Key="EditableFormItemStyle">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="FormKit:EzFormItem">
@@ -32,32 +26,22 @@
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <ContentPresenter Content="{TemplateBinding Label}"
-                                              VerticalAlignment="Top"
+                                              VerticalAlignment="Center"
                                               HorizontalAlignment="Right"
                                               TextBlock.Foreground="#FF777777" />
-                            <ContentPresenter Grid.Column="1"
-                                              Margin="{TemplateBinding Padding}"
-                                              x:Name="ContentPresenter" />
+                            <TextBox Grid.Column="1"
+                                     Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Text}"
+                                     Margin="{TemplateBinding Padding}"
+                                     Width="300"
+                                     x:Name="ContentPresenter"
+                                     VerticalContentAlignment="Center"
+                                     Height="25" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style TargetType="FormKit:EzFormItem"
-               x:Key="VerticalFormItemStyle">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="FormKit:EzFormItem">
-                        <StackPanel>
-                            <ContentPresenter Content="{TemplateBinding Label}"
-                                              TextBlock.Foreground="#FF777777" />
-                            <ContentPresenter Grid.Column="1"
-                                              x:Name="ContentPresenter" />
-                        </StackPanel>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+
     </UserControl.Resources>
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded" >
@@ -71,8 +55,9 @@
                    Grid.IsSharedSizeScope="True">
             <FormKit:EzForm FontSize="16" 
                             HeaderFontSize="24"
-                            Header="Form's Header">                
+                            Header="Form's Header">
                 <FormKit:EzFormItem Label="用戶姓名：" 
+                                    Style="{StaticResource EditableFormItemStyle}"
                                     Description="中文姓名"                                       
                                     IsRequired="True">
                     <TextBox Text="def" 
