@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzTool.SDK.WPF.ControlKit.DEMO.NET6", "EzTool.SDK.WPF.ControlKit.DEMO.NET6\EzTool.SDK.WPF.ControlKit.DEMO.NET6.csproj", "{6146A97A-775B-4E83-BFAF-82CA3E7B0D70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EzTool.SDK.WPF.ControlKit.DEMO.NET6", "EzTool.SDK.WPF.ControlKit.DEMO.NET6\EzTool.SDK.WPF.ControlKit.DEMO.NET6.csproj", "{6146A97A-775B-4E83-BFAF-82CA3E7B0D70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzTool.SDK.WPF.ControlKit.NET6", "EzTool.SDK.WPF.ControlKit.NET6\EzTool.SDK.WPF.ControlKit.NET6.csproj", "{5DE9516E-A37F-4D0F-83CF-A13D52F555C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EzTool.SDK.WPF.ControlKit.NET6", "EzTool.SDK.WPF.ControlKit.NET6\EzTool.SDK.WPF.ControlKit.NET6.csproj", "{5DE9516E-A37F-4D0F-83CF-A13D52F555C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_images", "_images", "{84CDB9B8-74AA-4C87-9E85-9EF5CA4F28E4}"
+	ProjectSection(SolutionItems) = preProject
+		_images\icon.png = _images\icon.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SolutionItems", "_SolutionItems", "{A6944A3E-264A-4A91-AAEF-2906966D4529}"
+	ProjectSection(SolutionItems) = preProject
+		ControlKit.stage.nuspec = ControlKit.stage.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
