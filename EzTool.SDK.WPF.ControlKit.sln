@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_images", "_images", "{84CD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SolutionItems", "_SolutionItems", "{A6944A3E-264A-4A91-AAEF-2906966D4529}"
 	ProjectSection(SolutionItems) = preProject
+		ControlKit.main.nuspec = ControlKit.main.nuspec
 		ControlKit.stage.nuspec = ControlKit.stage.nuspec
 	EndProjectSection
 EndProject
