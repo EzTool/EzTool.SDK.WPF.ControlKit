@@ -1,0 +1,10 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/FunctionBarKit/FunctionBar.xaml"/>
+        <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/WindowKit/EzWindow.xaml"/>
+        <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/WindowKit/EzWindowFunctionBar.xaml"/>                
+        <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/FormKit/EzForm.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

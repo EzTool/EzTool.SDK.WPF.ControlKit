@@ -9,9 +9,11 @@
              xmlns:PanelKit="clr-namespace:EzTool.SDK.WPF.ControlKit.PanelKit;assembly=EzTool.SDK.WPF.ControlKit"
              xmlns:FormKit="clr-namespace:EzTool.SDK.WPF.ControlKit.FormKit;assembly=EzTool.SDK.WPF.ControlKit"
              mc:Ignorable="d" 
-             Height="350" Width="700" Background="White"
+             Height="350" 
+             Width="700" 
+             Background="White"
              d:DataContext="{d:DesignInstance Type=local:EzFormViewContext}"
-             d:DesignHeight="700" d:DesignWidth="800">
+             d:DesignHeight="350" d:DesignWidth="700">
     <UserControl.Resources>
         <Style TargetType="FormKit:EzFormItem"
                x:Key="EditableFormItemStyle">
@@ -23,7 +25,7 @@
                                 <ColumnDefinition Width="Auto"
                                                   SharedSizeGroup="Header"
                                                   MinWidth="100" />
-                                <ColumnDefinition />                                
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -54,7 +56,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
     </UserControl.Resources>
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded" >
@@ -63,8 +64,23 @@
                 CommandParameter="EzFormLoadedEvent" />
         </b:EventTrigger>
     </b:Interaction.Triggers>
-    <Grid>
+    <Grid Margin="3" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <Button Width="125" 
+                        Height="25"
+                        Content="編輯模式切換"
+                        Command="{Binding RelayCommand}"
+                        CommandParameter="EzFormEditModeChangeEvent" />
+            </StackPanel>
+        </Grid>
         <WrapPanel x:Name="Root"
+                   Grid.Row="1"
                    Grid.IsSharedSizeScope="True">
             <FormKit:EzForm FontSize="16" 
                             HeaderFontSize="24"
