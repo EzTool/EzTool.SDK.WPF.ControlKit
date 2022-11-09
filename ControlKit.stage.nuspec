@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>EzTool.SDK.WPF.ControlKit</id>
-		<version>1.0.1-alpha</version>
+		<version>1.0.0.2-alpha</version>
 		<authors>EzTool.RD</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<license type="expression">MIT</license>
@@ -11,8 +11,11 @@
 		<description>
 			提供 WPF 自訂控制項。
 		</description>
-		<releaseNotes>			
-			# 1.0.1-alpha 初始工程版本
+		<releaseNotes>
+			# 1.0.0.2-alpha 
+			提供 framework 4.8 版本支援。
+			# 1.0.0.1-alpha 
+			初始工程版本
 		</releaseNotes>
 		<copyright>@ 2022</copyright>
 		<dependencies>
