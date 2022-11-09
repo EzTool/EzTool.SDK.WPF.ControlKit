@@ -5,6 +5,7 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
+		<AssemblyName>EzTool.SDK.WPF.ControlKit.DEMO</AssemblyName>
 		<RootNamespace>EzTool.SDK.WPF.ControlKit</RootNamespace>
 		<IncludePackageReferencesDuringMarkupCompilation>false</IncludePackageReferencesDuringMarkupCompilation>
 	</PropertyGroup>

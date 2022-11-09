@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SolutionItems", "_Solution
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzTool.SDK.WPF.ControlKit.NET48", "EzTool.SDK.WPF.ControlKit.NET48\EzTool.SDK.WPF.ControlKit.NET48.csproj", "{A0297E60-00FD-46AC-A549-CC195B897EF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzTool.SDK.WPF.ControlKit.DEMO.NET48", "EzTool.SDK.WPF.ControlKit.DEMO.NET48\EzTool.SDK.WPF.ControlKit.DEMO.NET48.csproj", "{A86F3BBC-61BE-4DEA-B8F1-2BF7FC74F1A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A0297E60-00FD-46AC-A549-CC195B897EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0297E60-00FD-46AC-A549-CC195B897EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0297E60-00FD-46AC-A549-CC195B897EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A86F3BBC-61BE-4DEA-B8F1-2BF7FC74F1A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A86F3BBC-61BE-4DEA-B8F1-2BF7FC74F1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A86F3BBC-61BE-4DEA-B8F1-2BF7FC74F1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A86F3BBC-61BE-4DEA-B8F1-2BF7FC74F1A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
