@@ -1,4 +1,4 @@
-﻿using EzTool.SDK.WPF.ControlKit.DEMO.Main;
+﻿using EzTool.SDK.WPF.ControlKit.DEMO.Views.Main;
 using EzTool.SDK.WPF.Unicorn;
 
 using System;

@@ -1,0 +1,60 @@
+﻿<RibbonWindow x:Class="EzTool.SDK.WPF.ControlKit.DEMO.Views.NormalRibbonWindow.NormalRibbonWindowView"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.Views.NormalRibbonWindow"
+              mc:Ignorable="d"
+              d:DataContext="{d:DesignInstance Type=local:NormalRibbonWindowViewContext}"
+              Title="NormalRibbonWindowView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Ribbon x:Name="RibbonMenu"
+                    VerticalAlignment="Top">
+            <RibbonTab Header="Home2" 
+                       ContextualTabGroupHeader="Home">
+                <RibbonGroup Header="Copy">
+                    <RibbonButton RibbonControlService.ToolTipTitle="Copy"
+                                  RibbonControlService.ToolTipDescription="Copy"  
+                                  Command="{Binding RelayCommand}"
+                                  CommandParameter="EzRibbonWindowCopyEven"
+                                  LargeImageSource="/EzTool.SDK.WPF.ControlKit.DEMO;component/_images/settings.png"
+                                  SmallImageSource="/EzTool.SDK.WPF.ControlKit.DEMO;component/_images/defaulticon.png"
+                                  Label="Copy" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Home1" >
+                <RibbonGroup Header="Copy">
+                    <RibbonButton RibbonControlService.ToolTipTitle="Copy"
+                                  RibbonControlService.ToolTipDescription="Copy"
+                                  Label="Copy" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="TestRibbonWindow"
+                       ContextualTabGroupHeader="TestRibbonWindow">
+                <RibbonGroup Header="View">
+                    <RibbonButton RibbonControlService.ToolTipTitle="View"
+                                  RibbonControlService.ToolTipDescription="View"
+                                  Label="View" />
+                </RibbonGroup>
+            </RibbonTab>
+            <Ribbon.ContextualTabGroups>
+                <RibbonContextualTabGroup Header="Home"
+                                          Visibility="Visible" />
+                <RibbonContextualTabGroup Header="TestRibbonWindow"
+                                          Visibility="Visible" />
+            </Ribbon.ContextualTabGroups>
+            <Ribbon.QuickAccessToolBar>
+                <RibbonQuickAccessToolBar>
+                    <RibbonButton SmallImageSource="/EzTool.SDK.WPF.ControlKit.DEMO;component/_images/defaulticon.png"/>
+                    <RibbonButton SmallImageSource="/EzTool.SDK.WPF.ControlKit.DEMO;component/_images/defaulticon.png"/>
+                    <RibbonButton SmallImageSource="/EzTool.SDK.WPF.ControlKit.DEMO;component/_images/defaulticon.png"/>
+                </RibbonQuickAccessToolBar>
+            </Ribbon.QuickAccessToolBar>
+        </Ribbon>
+        <Grid x:Name="AppGrid" Grid.Row="1" />
+    </Grid>
+</RibbonWindow>

@@ -89,41 +89,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DEMO\AppEntry.cs" />
-    <Compile Include="DEMO\EzForm\Events\EzFormLoadedEvent.cs" />
-    <Compile Include="DEMO\EzForm\Events\EzFormModeChangeEvent.cs" />
-    <Compile Include="DEMO\EzForm\EzFormView.xaml.cs">
+    <Compile Include="DEMO\Enums\SizeType.cs" />
+    <Compile Include="DEMO\Views\EzForm\Events\EzFormLoadedEvent.cs" />
+    <Compile Include="DEMO\Views\EzForm\Events\EzFormModeChangeEvent.cs" />
+    <Compile Include="DEMO\Views\EzForm\EzFormView.xaml.cs">
       <DependentUpon>EzFormView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DEMO\EzForm\EzFormViewModel.cs" />
-    <Compile Include="DEMO\EzRibbonWindow\Events\EzRibbonWindowCopyEven.cs" />
-    <Compile Include="DEMO\EzRibbonWindow\EzRibbonWindowMainView.xaml.cs">
+    <Compile Include="DEMO\Views\EzForm\EzFormViewModel.cs" />
+    <Compile Include="DEMO\Views\EzRibbonWindow\Events\EzRibbonWindowCopyEven.cs" />
+    <Compile Include="DEMO\Views\EzRibbonWindow\EzRibbonWindowMainView.xaml.cs">
       <DependentUpon>EzRibbonWindowMainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DEMO\EzRibbonWindow\EzRibbonWindowView.xaml.cs">
+    <Compile Include="DEMO\Views\EzRibbonWindow\EzRibbonWindowView.xaml.cs">
       <DependentUpon>EzRibbonWindowView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DEMO\EzRibbonWindow\EzRibbonWindowViewModel.cs" />
-    <Compile Include="DEMO\EzWindow\Events\EzWindowViewFunctionBarNotifyMsgEvent.cs" />
-    <Compile Include="DEMO\EzWindow\EzWindowMainView.xaml.cs">
+    <Compile Include="DEMO\Views\EzRibbonWindow\EzRibbonWindowViewModel.cs" />
+    <Compile Include="DEMO\Views\EzWindow\Events\EzWindowViewFunctionBarNotifyMsgEvent.cs" />
+    <Compile Include="DEMO\Views\EzWindow\EzWindowMainView.xaml.cs">
       <DependentUpon>EzWindowMainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DEMO\EzWindow\EzWindowView.xaml.cs">
+    <Compile Include="DEMO\Views\EzWindow\EzWindowView.xaml.cs">
       <DependentUpon>EzWindowView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DEMO\EzWindow\EzWindowViewModel.cs" />
-    <Compile Include="DEMO\Main\Events\MainViewLoadedEvent.cs" />
-    <Compile Include="DEMO\Main\Events\MainViewPopupEzRibbonWindowEvent.cs" />
-    <Compile Include="DEMO\Main\Events\MainViewPopupEzWindowEvent.cs" />
-    <Compile Include="DEMO\Main\Events\MainViewPopupNormalRibbonWindowEvent.cs" />
-    <Compile Include="DEMO\Main\Events\MainViewShowFormExampleEvent.cs" />
-    <Compile Include="DEMO\Main\MainView.xaml.cs">
+    <Compile Include="DEMO\Views\EzWindow\EzWindowViewModel.cs" />
+    <Compile Include="DEMO\Views\Main\Events\MainViewLoadedEvent.cs" />
+    <Compile Include="DEMO\Views\Main\Events\MainViewPopupEzRibbonWindowEvent.cs" />
+    <Compile Include="DEMO\Views\Main\Events\MainViewPopupEzWindowEvent.cs" />
+    <Compile Include="DEMO\Views\Main\Events\MainViewPopupNormalRibbonWindowEvent.cs" />
+    <Compile Include="DEMO\Views\Main\Events\MainViewShowFormExampleEvent.cs" />
+    <Compile Include="DEMO\Views\Main\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DEMO\Main\MainViewModel.cs" />
-    <Compile Include="DEMO\NormalRibbonWindow\NormalRibbonWindowView.xaml.cs">
+    <Compile Include="DEMO\Views\Main\MainViewModel.cs" />
+    <Compile Include="DEMO\Views\NormalRibbonWindow\NormalRibbonWindowView.xaml.cs">
       <DependentUpon>NormalRibbonWindowView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DEMO\NormalRibbonWindow\NormalRibbonWindowViewModel.cs" />
+    <Compile Include="DEMO\Views\NormalRibbonWindow\NormalRibbonWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -151,36 +152,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="DEMO\EzForm\EzFormView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DEMO\EzRibbonWindow\EzRibbonWindowMainView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DEMO\EzRibbonWindow\EzRibbonWindowView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DEMO\EzWindow\EzWindowMainView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DEMO\EzWindow\EzWindowView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DEMO\Main\MainView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DEMO\NormalRibbonWindow\NormalRibbonWindowView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="_images\defaulticon.png" />
     <Resource Include="_images\settings.png" />
   </ItemGroup>
@@ -189,6 +160,36 @@
       <Project>{a0297e60-00fd-46ac-a549-cc195b897ef9}</Project>
       <Name>EzTool.SDK.WPF.ControlKit.NET48</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DEMO\Views\EzForm\EzFormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DEMO\Views\EzRibbonWindow\EzRibbonWindowMainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DEMO\Views\EzRibbonWindow\EzRibbonWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DEMO\Views\EzWindow\EzWindowMainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DEMO\Views\EzWindow\EzWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DEMO\Views\Main\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DEMO\Views\NormalRibbonWindow\NormalRibbonWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

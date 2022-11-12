@@ -121,6 +121,7 @@
     <Compile Include="Utilities\Converters\BoolToObjectConverter.cs" />
     <Compile Include="Utilities\Converters\EmptyObjectToObjectConverter.cs" />
     <Compile Include="Utilities\Converters\EmptyObjectToVisibilityConverter.cs" />
+    <Compile Include="Utilities\Converters\EnumToBoolConverter.cs" />
     <Compile Include="Utilities\Converters\NullToValueConverter.cs" />
     <Compile Include="Utilities\Converters\TimesConverter.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

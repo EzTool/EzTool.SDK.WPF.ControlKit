@@ -29,4 +29,35 @@
 	  <ProjectReference Include="..\EzTool.SDK.WPF.ControlKit.NET6\EzTool.SDK.WPF.ControlKit.NET6.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Page Update="DEMO\Views\EzForm\EzFormView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Update="DEMO\Views\EzRibbonWindow\EzRibbonWindowMainView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Update="DEMO\Views\EzRibbonWindow\EzRibbonWindowView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Update="DEMO\Views\EzWindow\EzWindowMainView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Update="DEMO\Views\EzWindow\EzWindowView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Update="DEMO\Views\Main\MainView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Update="DEMO\Views\NormalRibbonWindow\NormalRibbonWindowView.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
 </Project>
