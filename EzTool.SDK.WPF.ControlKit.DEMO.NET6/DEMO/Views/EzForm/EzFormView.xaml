@@ -8,7 +8,8 @@
              xmlns:Converters="clr-namespace:EzTool.SDK.WPF.Utilities.Converters;assembly=EzTool.SDK.WPF.ControlKit"
              xmlns:Enums="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.Enums"
              xmlns:PanelKit="clr-namespace:EzTool.SDK.WPF.ControlKit.PanelKit;assembly=EzTool.SDK.WPF.ControlKit"
-             xmlns:RadioButtonKit="clr-namespace:EzTool.SDK.WPF.ControlKit.RadioButtonKit;assembly=EzTool.SDK.WPF.ControlKit"
+             xmlns:RadioButtonKit="clr-namespace:EzTool.SDK.WPF.ControlKit.RadioButtonKit;assembly=EzTool.SDK.WPF.ControlKit" 
+             xmlns:CheckBoxKit="clr-namespace:EzTool.SDK.WPF.ControlKit.CheckBoxKit;assembly=EzTool.SDK.WPF.ControlKit"
              xmlns:FormKit="clr-namespace:EzTool.SDK.WPF.ControlKit.FormKit;assembly=EzTool.SDK.WPF.ControlKit"
              mc:Ignorable="d" 
              Height="350" 
@@ -19,7 +20,8 @@
     <UserControl.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/RadioButtonKit/EzRadioButton.xaml" />
+                <!--<ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/RadioButtonKit/EzRadioButton.xaml" />-->
+                <!--<ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/CheckBoxKit/EzCheckBox.xaml" />-->
             </ResourceDictionary.MergedDictionaries>
             <Converters:EnumToBoolConverter x:Key="EnumToBoolConverter" />
         </ResourceDictionary>
@@ -48,6 +50,10 @@
                                               FontSize="24"
                                               OptionMarkFill="OrangeRed"
                                               OptionMarkSize="20"/>
+                <CheckBoxKit:EzCheckBox Content="Item1" 
+                                        CheckMarkSize="26"
+                                        CheckMarkFill="Orange"
+                                        FontSize="30"/>
             </StackPanel>
         </Grid>
         <WrapPanel x:Name="Root"
@@ -61,6 +67,14 @@
                                     IsRequired="True">
                     <TextBox Text="def" 
                              Width="126"/>
+                </FormKit:EzFormItem>
+                <FormKit:EzFormItem Label="項目">
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBoxKit:EzCheckBox Content="Item1" 
+                                                FontSize="22"/>
+                        <CheckBoxKit:EzCheckBox Content="Item2" />
+                        <CheckBoxKit:EzCheckBox Content="Item3" />
+                    </StackPanel>
                 </FormKit:EzFormItem>
                 <FormKit:EzFormItem Label="尺寸："  
                                     Description="{Binding Size}"
