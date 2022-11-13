@@ -8,6 +8,7 @@
              xmlns:Converters="clr-namespace:EzTool.SDK.WPF.Utilities.Converters;assembly=EzTool.SDK.WPF.ControlKit"
              xmlns:Enums="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.Enums"
              xmlns:PanelKit="clr-namespace:EzTool.SDK.WPF.ControlKit.PanelKit;assembly=EzTool.SDK.WPF.ControlKit"
+             xmlns:RadioButtonKit="clr-namespace:EzTool.SDK.WPF.ControlKit.RadioButtonKit;assembly=EzTool.SDK.WPF.ControlKit"
              xmlns:FormKit="clr-namespace:EzTool.SDK.WPF.ControlKit.FormKit;assembly=EzTool.SDK.WPF.ControlKit"
              mc:Ignorable="d" 
              Height="350" 
@@ -16,48 +17,12 @@
              d:DataContext="{d:DesignInstance Type=local:EzFormViewContext}"
              d:DesignHeight="350" d:DesignWidth="700">
     <UserControl.Resources>
-        <Converters:EnumToBoolConverter x:Key="EnumToBoolConverter" />
-        <Style TargetType="FormKit:EzFormItem"
-               x:Key="EditableFormItemStyle">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="FormKit:EzFormItem">
-                        <Grid x:Name="Root">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"
-                                                  SharedSizeGroup="Header"
-                                                  MinWidth="100" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <ContentPresenter Grid.Row="0" 
-                                              Grid.Column="0" 
-                                              Content="{TemplateBinding Label}"
-                                              VerticalAlignment="Center"
-                                              HorizontalAlignment="Right"
-                                              TextBlock.Foreground="#FF777777" />
-                            <TextBox Grid.Row="0" 
-                                     Grid.Column="1"
-                                     Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Text}"
-                                     Margin="{TemplateBinding Padding}"
-                                     Width="300"
-                                     x:Name="ContentPresenter"
-                                     VerticalContentAlignment="Center"
-                                     Height="25" />
-                            <ContentPresenter Grid.Row="1"
-                                              Grid.Column="1" Content="{TemplateBinding Description}"
-                                              Margin="{TemplateBinding Padding}"
-                                              VerticalAlignment="Center"
-                                              HorizontalAlignment="Left"
-                                              TextBlock.Foreground="#FF777777" />
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ResourceDictionary >
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/RadioButtonKit/EzRadioButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Converters:EnumToBoolConverter x:Key="EnumToBoolConverter" />
+        </ResourceDictionary>
     </UserControl.Resources>
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded" >
@@ -79,6 +44,10 @@
                         Content="編輯模式切換"
                         Command="{Binding RelayCommand}"
                         CommandParameter="EzFormModeChangeEvent" />
+                <RadioButtonKit:EzRadioButton Content="大號" 
+                                              FontSize="24"
+                                              OptionMarkFill="OrangeRed"
+                                              OptionMarkSize="20"/>
             </StackPanel>
         </Grid>
         <WrapPanel x:Name="Root"
@@ -87,26 +56,33 @@
             <FormKit:EzForm FontSize="16" 
                             HeaderFontSize="24"
                             Header="Form's Header">
-                <FormKit:EzFormItem Label="用戶姓名：" 
-                                    Style="{StaticResource EditableFormItemStyle}"
+                <FormKit:EzFormItem Label="用戶姓名："                                     
                                     Description="中文姓名"                                       
                                     IsRequired="True">
                     <TextBox Text="def" 
                              Width="126"/>
                 </FormKit:EzFormItem>
-                <FormKit:EzFormItem Label="尺寸："      
+                <FormKit:EzFormItem Label="尺寸："  
                                     Description="{Binding Size}"
                                     IsRequired="False">
-                    <StackPanel Orientation="Vertical">
-                        <RadioButton Content="大號"
-                                     IsChecked="{Binding SizeType, 
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="RadioButtonKit:EzRadioButton">
+                                <Setter Property="OptionMarkFill"
+                                        Value="OrangeRed" />
+                                <Setter Property="OptionMarkSize"
+                                        Value="6" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <RadioButtonKit:EzRadioButton Content="大號"                                                                                                             
+                                                      IsChecked="{Binding SizeType, 
                             Converter={StaticResource EnumToBoolConverter}, 
                             ConverterParameter={x:Static Enums:SizeType.Big}}" />
-                        <RadioButton Content="中號" 
+                        <RadioButtonKit:EzRadioButton Content="中號" 
                                      IsChecked="{Binding SizeType, 
                             Converter={StaticResource EnumToBoolConverter}, 
                             ConverterParameter={x:Static Enums:SizeType.Middle}}" />
-                        <RadioButton Content="小號" 
+                        <RadioButtonKit:EzRadioButton Content="小號" 
                                      IsChecked="{Binding SizeType, 
                             Converter={StaticResource EnumToBoolConverter}, 
                             ConverterParameter={x:Static Enums:SizeType.Small}}" />

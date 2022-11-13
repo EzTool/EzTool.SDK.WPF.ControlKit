@@ -68,6 +68,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ControlKit\RadioButtonKit\EzRadioButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ControlKit\WindowKit\EzWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,6 +98,7 @@
     <Compile Include="ControlKit\FunctionBarKit\FormFunctionBar.cs" />
     <Compile Include="ControlKit\FunctionBarKit\FunctionBar.cs" />
     <Compile Include="ControlKit\PanelKit\EzStackPanel.cs" />
+    <Compile Include="ControlKit\RadioButtonKit\EzRadioButton.cs" />
     <Compile Include="ControlKit\ScrollViewerKit\EzScrollViewer.cs" />
     <Compile Include="ControlKit\WindowKit\EzRibbonWindow.cs" />
     <Compile Include="ControlKit\WindowKit\EzWindow.cs" />
