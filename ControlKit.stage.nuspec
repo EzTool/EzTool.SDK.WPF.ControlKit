@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>EzTool.SDK.WPF.ControlKit</id>
-		<version>1.0.0.7-alpha</version>
+		<version>1.0.0.9-alpha</version>
 		<authors>EzTool.RD</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<license type="expression">MIT</license>
@@ -12,6 +12,8 @@
 			提供 WPF 自訂控制項。
 		</description>
 		<releaseNotes>
+			# 1.0.0.9-alpha
+			新增 EzCheckBox 控制項，提供 CheckMarkSize//CheckMarkFill 屬性，指定選取圖示的大小及顏色。
 			# 1.0.0.7-alpha
 			新增 EzRadioButton 控制項，提供 OptionMarkSize/OptionMarkFill 屬性，指定選取圖示的大小及顏色。
 			# 1.0.0.5-alpha
