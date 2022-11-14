@@ -52,6 +52,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ControlKit\CheckBoxKit\EzCheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ControlKit\FormKit\EzForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,6 +94,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlKit\CheckBoxKit\EzCheckBox.cs" />
     <Compile Include="ControlKit\FormKit\EzForm.cs" />
     <Compile Include="ControlKit\FormKit\EzFormHeader.cs" />
     <Compile Include="ControlKit\FormKit\EzFormItem.cs" />
