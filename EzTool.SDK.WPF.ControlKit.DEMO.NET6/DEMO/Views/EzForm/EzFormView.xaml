@@ -69,11 +69,21 @@
                              Width="126"/>
                 </FormKit:EzFormItem>
                 <FormKit:EzFormItem Label="項目">
-                    <StackPanel Orientation="Horizontal">
-                        <CheckBoxKit:EzCheckBox Content="Item1" 
-                                                FontSize="22"/>
-                        <CheckBoxKit:EzCheckBox Content="Item2" />
-                        <CheckBoxKit:EzCheckBox Content="Item3" />
+                    <StackPanel Orientation="Horizontal"
+                                Margin="-13,0,0,0">
+                        <StackPanel.Resources>
+                            <Style TargetType="CheckBoxKit:EzCheckBox">
+                                <Setter Property="CheckMarkSize"
+                                        Value="24" />
+                                <Setter Property="FontSize"
+                                        Value="24" />
+                                <Setter Property="Margin"
+                                        Value="13,0,0,0" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <CheckBoxKit:EzCheckBox Content="項目一" />
+                        <CheckBoxKit:EzCheckBox Content="項目二" />
+                        <CheckBoxKit:EzCheckBox Content="項目三" />
                     </StackPanel>
                 </FormKit:EzFormItem>
                 <FormKit:EzFormItem Label="尺寸："  
