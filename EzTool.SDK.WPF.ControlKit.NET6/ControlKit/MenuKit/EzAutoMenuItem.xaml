@@ -2,6 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.MenuKit">
 
+    <local:MenuItemContainerTemplateSelector x:Key="_menuItemContainerTemplateSelector"/>
+    <DataTemplate x:Key="SeparaterItemTemplate">
+        <Separator />
+    </DataTemplate>
+    <DataTemplate x:Key="MenuItemTemplate">
+        <MenuItem Header="{Binding Header}" />
+    </DataTemplate>
+
     <ControlTemplate x:Key="EzAutoTopLevelItemTemplate"
                      TargetType="{x:Type local:EzAutoMenuItem}">
         <Border x:Name="templateRoot"
@@ -221,6 +229,14 @@
     </ControlTemplate>
     <ControlTemplate x:Key="EzAutoSubmenuItemTemplate"
                      TargetType="{x:Type local:EzAutoMenuItem}">
+        <ControlTemplate.Resources>
+            <DataTemplate x:Key="SeparaterItemTemplate">
+                <Separator />
+            </DataTemplate>
+            <DataTemplate x:Key="MenuItemTemplate">
+                <local:EzAutoMenuItem Header="{Binding Header}" />
+            </DataTemplate>
+        </ControlTemplate.Resources>
         <Border x:Name="templateRoot"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
@@ -336,7 +352,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
     <ControlTemplate x:Key="EzAutoSubmenuHeaderTemplate"
-                     TargetType="{x:Type MenuItem}">
+                     TargetType="{x:Type local:EzAutoMenuItem}">
         <Border x:Name="templateRoot"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
@@ -497,7 +513,11 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style TargetType="{x:Type local:EzAutoMenuItem}">      
+    <Style TargetType="{x:Type local:EzAutoMenuItem}">
+        <Setter Property="UsesItemContainerTemplate"
+                Value="True"/>
+        <Setter Property="ItemContainerTemplateSelector"
+                Value="{StaticResource _menuItemContainerTemplateSelector}" />
         <Setter Property="Control.HorizontalContentAlignment"
                 Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
         <Setter Property="Control.VerticalContentAlignment"
@@ -537,5 +557,6 @@
                         Value="6,0" />
             </Trigger>
         </Style.Triggers>
+
     </Style>
 </ResourceDictionary>
