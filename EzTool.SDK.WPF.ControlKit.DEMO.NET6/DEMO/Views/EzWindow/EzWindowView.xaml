@@ -28,7 +28,20 @@
     <WindowKit:EzWindow.MainFunctionBar>
         <WindowKit:EzWindowFunctionBar>
             <Menu>
-                <MenuKit:EzAutoMenuItem Header="AutoMenuItem" 
+                <MenuKit:EzAutoMenuItem Header="AutoMenuItem" >
+                    <MenuKit:EzAutoMenuItem Header="ItemA" />
+                    <Separator />
+                    <MenuKit:EzAutoMenuItem Header="ItemB1" />
+                    <MenuKit:EzAutoMenuItem Header="ItemB2" >
+                        <MenuKit:EzAutoMenuItem Header="ItemB2-A1" />
+                        <MenuKit:EzAutoMenuItem Header="ItemB2-A2" />
+                        <Separator />
+                        <MenuKit:EzAutoMenuItem Header="ItemB2-B1" />
+                    </MenuKit:EzAutoMenuItem>
+                </MenuKit:EzAutoMenuItem>
+            </Menu>
+            <Menu>
+                <MenuKit:EzAutoMenuItem Header="ByItemsSource" 
                                         ItemsSource="{Binding MenuItems}" />
             </Menu>
             <Menu>

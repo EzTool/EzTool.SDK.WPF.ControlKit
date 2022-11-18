@@ -31,7 +31,9 @@ namespace EzTool.SDK.WPF.ControlKit.MenuKit
                     $@"<DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation""
                                                                  xmlns:x=""http://schemas.microsoft.com/winfx/2006/xaml""                                                                             
                                                                  xmlns:c=""clr-namespace:MyApp.Converters;assembly=MyApp"">
-                            <MenuItem Header=""{{Binding Header}}"" />
+                            <MenuItem Header=""{{Binding Header}}"" 
+                                      Command=""{{Binding Command}}""
+                                      />
                           </DataTemplate>"));
 
             }

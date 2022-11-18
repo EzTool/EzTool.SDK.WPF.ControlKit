@@ -2,13 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.MenuKit">
 
-    <local:MenuItemContainerTemplateSelector x:Key="_menuItemContainerTemplateSelector"/>
-    <DataTemplate x:Key="SeparaterItemTemplate">
-        <Separator />
-    </DataTemplate>
-    <DataTemplate x:Key="MenuItemTemplate">
-        <MenuItem Header="{Binding Header}" />
-    </DataTemplate>
+    <local:MenuItemContainerTemplateSelector x:Key="_menuItemContainerTemplateSelector"/>   
 
     <ControlTemplate x:Key="EzAutoTopLevelItemTemplate"
                      TargetType="{x:Type local:EzAutoMenuItem}">
