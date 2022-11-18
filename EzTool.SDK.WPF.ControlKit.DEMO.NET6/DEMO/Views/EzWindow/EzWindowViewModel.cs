@@ -47,8 +47,10 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.Views.EzWindow
                 IsShowProgress = false
             };
             var objMsgEvent = new EzWindowViewFunctionBarNotifyMsgEvent() { ViewContext = objDataContext };
+            var objLoadedEvent = new EzWindowViewLoadedEvent() { ViewContext = objDataContext };
 
             objDataContext.RelayCommand.Register(objMsgEvent);
+            objDataContext.RelayCommand.Register(objLoadedEvent);
 
             new DispatcherProxy().Invoke(() =>
             {
@@ -113,7 +115,7 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.Views.EzWindow
         private ObservableCollection<MenuItemContext> l_objMenuItems =
             new ObservableCollection<MenuItemContext>()
             {
-                new MenuItemContext(){Header=$@"ItemA"},
+                new MenuItemContext(){Header=$@"ItemAItemAItemAItemAItemAItemA"},
                 null,
                 new MenuItemContext(){Header=$@"ItemB"}
             };

@@ -2,8 +2,11 @@
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:WindowKit ="clr-namespace:EzTool.SDK.WPF.ControlKit.WindowKit;assembly=EzTool.SDK.WPF.ControlKit"
+                    xmlns:WindowKit ="clr-namespace:EzTool.SDK.WPF.ControlKit.WindowKit;assembly=EzTool.SDK.WPF.ControlKit"                    
+                    xmlns:MenuKit="clr-namespace:EzTool.SDK.WPF.ControlKit.MenuKit;assembly=EzTool.SDK.WPF.ControlKit"
+                    xmlns:views="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.Views"
                     xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.DEMO.Views.EzWindow"
                     mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
                     ResizeMode="CanResize" 
@@ -12,15 +15,76 @@
                     Icon="/EzTool.SDK.WPF.ControlKit.DEMO;component/_images/defaulticon.png"
                     d:DataContext="{d:DesignInstance Type=local:EzWindowViewContext}"                    
                     Title="EzWindowView" Height="450" Width="800">
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding RelayCommand}"
+                                   CommandParameter="EzWindowViewLoadedEvent" />
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+    <WindowKit:EzWindow.Resources>
+        <views:MenuItemContainerTemplateSelector x:Key="_menuItemContainerTemplateSelector" />
+    </WindowKit:EzWindow.Resources>
+
     <WindowKit:EzWindow.MainFunctionBar>
         <WindowKit:EzWindowFunctionBar>
+            <Menu>
+                <MenuItem Header="AutoMenuItem">
+                    <MenuItem Header="Itam1" />
+                    <Separator />
+                    <MenuKit:EzAutoMenuItem Header="ItemA" >
+                        <MenuKit:EzAutoMenuItem Header="ItemA1" />
+                        <MenuKit:EzAutoMenuItem Header="ItemA2" />
+                    </MenuKit:EzAutoMenuItem>
+                </MenuItem>
+            </Menu>
+            
+            <Menu >
+                <MenuItem Header="外掛項目"
+                    ItemsSource="{Binding MenuItems}">
+                    <MenuItem.Resources>
+                        <Style TargetType="{x:Type MenuItem}">
+                            <Setter Property="Header" Value="{Binding Header}" />
+                            <Setter Property="Command" Value="{Binding Command}" />
+                            <!--<Style.Triggers>
+                                <DataTrigger Binding="{Binding }" 
+                                             Value="{x:Null}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type MenuItem}">
+                                                <Separator />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>-->
+                        </Style>
+                    </MenuItem.Resources>
+                </MenuItem>
+            </Menu>
+            <Menu UsesItemContainerTemplate="True">
+                <MenuItem Header="外掛功能"
+                          ItemsSource="{Binding MenuItems}"
+                          UsesItemContainerTemplate="True"
+                          ItemContainerTemplateSelector = "{StaticResource _menuItemContainerTemplateSelector}" >
+                    <MenuItem.Resources>
+                        <DataTemplate x:Key="SeparaterItemTemplate">
+                            <Separator />
+                        </DataTemplate>
+                        <DataTemplate x:Key="MenuItemTemplate">
+                            <MenuItem Header="{Binding Header}" />
+                        </DataTemplate>
+                    </MenuItem.Resources>
+                </MenuItem>
+            </Menu>
             <Menu FontSize="12" FontFamily="Microsoft JhengHei">
                 <MenuItem Header="檔案" >
                     <MenuItem Header="新增檔案" />
                     <Separator />
                     <MenuItem Header="常用檔案" >
                         <MenuItem Header="檔案A" />
+                        <Separator />
                         <MenuItem Header="檔案B" />
+                        <MenuItem Header="檔案C" />
                     </MenuItem>
                 </MenuItem>
             </Menu>
