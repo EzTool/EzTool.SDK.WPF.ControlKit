@@ -9,6 +9,7 @@ using EzTool.SDK.WPF.Unicorn.Utilities;
 using EzTool.SDK.WPF.ViewActions.Interface;
 
 using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 
 namespace EzTool.SDK.WPF.ControlKit.DEMO.Views.EzWindow
@@ -43,7 +44,7 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.Views.EzWindow
             {
                 Presenter = Presenter,
                 HashCode = GetHashCode().ToString(),
-                IsShowProgress = false 
+                IsShowProgress = false
             };
             var objMsgEvent = new EzWindowViewFunctionBarNotifyMsgEvent() { ViewContext = objDataContext };
 
@@ -109,6 +110,24 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.Views.EzWindow
 
     public class EzWindowViewContext : BaseViewContext
     {
-        public string HashCode { get; set; }
+        private ObservableCollection<MenuItemContext> l_objMenuItems =
+            new ObservableCollection<MenuItemContext>()
+            {
+                new MenuItemContext(){Header=$@"ItemA"},
+                null,
+                new MenuItemContext(){Header=$@"ItemB"}
+            };
+
+        public string HashCode { get; set; } = string.Empty;
+
+        public ObservableCollection<MenuItemContext> MenuItems
+        {
+            get { return l_objMenuItems; }
+            set
+            {
+                l_objMenuItems = value;
+                OnPropertyChanged(nameof(MenuItems));
+            }
+        }
     }
 }
