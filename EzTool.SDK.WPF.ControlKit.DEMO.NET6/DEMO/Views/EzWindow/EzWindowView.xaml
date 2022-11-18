@@ -41,8 +41,12 @@
                 </MenuKit:EzAutoMenuItem>
             </Menu>
             <Menu>
-                <MenuKit:EzAutoMenuItem Header="ByItemsSource" 
-                                        ItemsSource="{Binding MenuItems}" />
+                <MenuItem Header="ByHand">
+                    <MenuItem Header="ByHand1" />
+                    <MenuKit:EzAutoMenuItem 
+                        Header="ByItemsSource" 
+                        ItemsSource="{Binding MenuItems}" />
+                </MenuItem>
             </Menu>
             <Menu>
                 <MenuItem Header="EzAutoMenuItem" >
