@@ -4,6 +4,9 @@ using System.IO;
 using System.Text;
 using System.Windows.Markup;
 using System.Collections.Generic;
+using EzTool.SDK.WPF.Exceptions;
+using EzTool.SDK.WPF.HumbleObjects;
+using EzTool.SDK.WPF.Utilities;
 
 namespace EzTool.SDK.WPF.ControlKit.MenuKit
 {
@@ -14,49 +17,34 @@ namespace EzTool.SDK.WPF.ControlKit.MenuKit
     {
         public override DataTemplate SelectTemplate(object item, ItemsControl parentItemsControl)
         {
-            DataTemplate objReturn;
-            MemoryStream ms;
-
-            ResourceDictionary objResources = parentItemsControl.Resources;
-
-
             if (item == null)
             {
-                ms = new MemoryStream(Encoding.UTF8.GetBytes(
-                   $@"<DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation""
-                                                                 xmlns:x=""http://schemas.microsoft.com/winfx/2006/xaml""                                                                             
-                                                                 xmlns:c=""clr-namespace:MyApp.Converters;assembly=MyApp"">
-                            <Separator />
-                          </DataTemplate>"));
+                var sSourcePath = $@"/EzTool.SDK.WPF.ControlKit;component/ControlKit/MenuKit/SeparatorDataTemplate.xaml";
+                var objUri = new System.Uri(sSourcePath, System.UriKind.RelativeOrAbsolute);
+                var objSeparatorItemTemplateRedource = new ResourceDictionary { Source = objUri };
+
+                return (DataTemplate)objSeparatorItemTemplateRedource["SeparatorItemTemplate"];
             }
             else
             {
-                if (objResources != null && objResources.Count > 0)
+                var objParentItemResources = parentItemsControl.Resources;
+                var sMenuItemTemplateKey = $@"MenuItemTemplate";
+
+                if (objParentItemResources != null)
                 {
-                    foreach (System.Collections.DictionaryEntry objResource in objResources)
+                    var objFindResult = parentItemsControl.TryFindResource(sMenuItemTemplateKey);
+
+                    if (objFindResult != null)
                     {
-                        if (objResource.Key is string sKey
-                            && sKey == $@"ItemTemplate"
-                            && objResource.Value is DataTemplate objTemplate)
-                        {
-                            objReturn = objTemplate;
-                        }
+                        return (DataTemplate)objFindResult;
                     }
                 }
-
-                ms = new MemoryStream(Encoding.UTF8.GetBytes(
-                    $@"<DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation""
-                                                                 xmlns:x=""http://schemas.microsoft.com/winfx/2006/xaml""                                                                             
-                                                                 xmlns:c=""clr-namespace:MyApp.Converters;assembly=MyApp"">
-                            <MenuItem Header=""{{Binding Header}}"" 
-                                      Command=""{{Binding Command}}""
-                                      />
-                          </DataTemplate>"));
-
             }
-            objReturn = (DataTemplate)XamlReader.Load(ms);
 
-            return objReturn;
+            var sMessage = EmbedFileReader.Initial().Read($@"NoMenuItemTemplateMsg.txt");
+            BindingErrorListener.Notify(sMessage);
+
+            return null;
         }
     }
 }

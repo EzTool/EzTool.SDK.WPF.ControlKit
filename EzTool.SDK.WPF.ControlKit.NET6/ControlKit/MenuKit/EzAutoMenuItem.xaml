@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:EzTool.SDK.WPF.ControlKit.MenuKit">
 
     <local:MenuItemContainerTemplateSelector x:Key="_menuItemContainerTemplateSelector"/>   
-
+    
     <ControlTemplate x:Key="EzAutoTopLevelItemTemplate"
                      TargetType="{x:Type local:EzAutoMenuItem}">
         <Border x:Name="templateRoot"
