@@ -43,22 +43,24 @@
             </Menu>
             <Separator />
             <Menu>
+                <Menu.Resources>
+                    <DataTemplate x:Key="ItemTemplate" >
+                        <MenuKit:EzAutoMenuItem Header="{Binding Header}" />
+                    </DataTemplate>
+                </Menu.Resources>
                 <MenuKit:EzAutoMenuItem 
                     Header="EzAutoMenuItem-DynamicByBinding" 
+                    MenuItemTemplate="{StaticResource ItemTemplate}"
                     ItemsSource="{Binding MenuItems}" >
-                    <MenuKit:EzAutoMenuItem.Resources>
-                        <DataTemplate x:Key="MenuItemTemplate" >
-                            <MenuKit:EzAutoMenuItem Header="{Binding Header}" />
-                        </DataTemplate>                        
-                    </MenuKit:EzAutoMenuItem.Resources>
                 </MenuKit:EzAutoMenuItem>
             </Menu>
-            
-            <!--<Menu>
-                <MenuItem Header="ByHand">
-                    <MenuItem Header="ByHand1" />
+            <Separator />
+            <Menu>
+                <MenuItem Header="Hybird">
+                    <MenuItem Header="Item-Predesign" />
                     <MenuKit:EzAutoMenuItem 
-                        Header="ByItemsSource" 
+                        Header="DynamicByBinding" 
+                        MenuItemTemplateKey="ItemTmplate"
                         ItemsSource="{Binding MenuItems}" >
                         <MenuKit:EzAutoMenuItem.Resources>
                             <DataTemplate x:Key="ItemTmplate" >
@@ -67,8 +69,8 @@
                         </MenuKit:EzAutoMenuItem.Resources>
                     </MenuKit:EzAutoMenuItem>
                 </MenuItem>
-            </Menu>-->
-            
+            </Menu>
+
             <!--<Menu>
                 <MenuItem Header="EzAutoMenuItem" >
                     <MenuItem Header="Itam1" />
@@ -149,7 +151,7 @@
                     </MenuItem>
                 </MenuItem>
             </Menu>
-            
+
             <!--<Menu FontSize="12" FontFamily="Microsoft JhengHei">
                 <MenuItem Header="檔案" >
                     <MenuItem Header="新增檔案" />
@@ -160,9 +162,9 @@
                     </MenuItem>
                 </MenuItem>
             </Menu>-->
-            
+
             <Separator />
-            
+
             <Button Content="MSG" 
                     Command="{Binding RelayCommand}" 
                     CommandParameter="EzWindowViewFunctionBarNotifyMsgEvent" />

@@ -4,7 +4,6 @@
 
     <local:MenuItemContainerTemplateSelector x:Key="_menuItemContainerTemplateSelector"/>
     
-    
     <ControlTemplate x:Key="EzAutoTopLevelItemTemplate"
                      TargetType="{x:Type local:EzAutoMenuItem}">
         <Border x:Name="templateRoot"
@@ -554,4 +553,5 @@
         </Style.Triggers>
 
     </Style>
+    
 </ResourceDictionary>

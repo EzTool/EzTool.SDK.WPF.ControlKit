@@ -14,12 +14,13 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.Views.EzWindow.Events
     {
         public override IEventResponse Execute()
         {
+            var objSeparator = default(MenuItemContext);
+
             new DispatcherProxy().Invoke(() =>
             {
-                ViewContext.MenuItems.Add(new MenuItemContext()
-                {
-                    Header = $@"Item_Loaded"
-                });
+                ViewContext.MenuItems.Add(new MenuItemContext() { Header = $@"ItemA" });
+                ViewContext.MenuItems.Add(objSeparator);
+                ViewContext.MenuItems.Add(new MenuItemContext() { Header = $@"ItemB" });
             });
 
             return base.Execute();

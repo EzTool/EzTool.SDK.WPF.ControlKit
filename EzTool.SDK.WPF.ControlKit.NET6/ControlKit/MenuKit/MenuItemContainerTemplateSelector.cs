@@ -10,20 +10,34 @@ namespace EzTool.SDK.WPF.ControlKit.MenuKit
     /// </summary>
     public class MenuItemContainerTemplateSelector : ItemContainerTemplateSelector
     {
-        public override DataTemplate SelectTemplate(object item, ItemsControl parentItemsControl)
+        public override DataTemplate? SelectTemplate(object item, ItemsControl parentItemsControl)
         {
             if (item == null)
             {
-                var sSourcePath = $@"/EzTool.SDK.WPF.ControlKit;component/ControlKit/MenuKit/SeparatorDataTemplate.xaml";
-                var objUri = new System.Uri(sSourcePath, System.UriKind.RelativeOrAbsolute);
+                var sSeparatorItemTemplateKey = $@"SeparatorItemTemplate";
+                var sAssemblyName = GetType().Assembly.GetName().Name;
+                var sSourcePath = $@"/{sAssemblyName};component/ControlKit/MenuKit/SeparatorItemDataTemplate.xaml";
+                var objUri = new System.Uri(sSourcePath ?? string.Empty, System.UriKind.RelativeOrAbsolute);
                 var objSeparatorItemTemplateRedource = new ResourceDictionary { Source = objUri };
 
-                return (DataTemplate)objSeparatorItemTemplateRedource["SeparatorItemTemplate"];
+                return (DataTemplate)objSeparatorItemTemplateRedource[sSeparatorItemTemplateKey ?? string.Empty];
             }
             else
             {
                 var objParentItemResources = parentItemsControl.Resources;
                 var sMenuItemTemplateKey = $@"MenuItemTemplate";
+
+                if (parentItemsControl is EzAutoMenuItem objEzAutoMenuItem)
+                {
+                    if (objEzAutoMenuItem.MenuItemTemplate == null)
+                    {
+                        sMenuItemTemplateKey = objEzAutoMenuItem.MenuItemTemplateKey;
+                    }
+                    else
+                    {
+                        return objEzAutoMenuItem.MenuItemTemplate;
+                    }
+                }
 
                 if (objParentItemResources != null)
                 {
@@ -37,7 +51,7 @@ namespace EzTool.SDK.WPF.ControlKit.MenuKit
             }
 
             var sMessage = EmbedFileReader.Initial().Read($@"NoMenuItemTemplateMsg.txt");
-            BindingErrorListener.Notify(sMessage);
+            BindingErrorListener.Notify(sMessage ?? string.Empty);
 
             return null;
         }
