@@ -578,7 +578,7 @@
                 Value="False" />
         <Setter Property="Control.Template"
                 Value="{StaticResource SubmenuItemTemplate}" />
-        <Style.Triggers>
+        <Style.Triggers>           
             <Trigger Property="MenuItem.Role"
                      Value="TopLevelHeader">
                 <Setter Property="Control.Template"
@@ -597,6 +597,8 @@
                      Value="SubmenuHeader">
                 <Setter Property="Control.Template"
                         Value="{StaticResource SubmenuHeaderTemplate}" />
+                <Setter Property="Control.Padding"
+                        Value="6,0" />
             </Trigger>
         </Style.Triggers>
     </Style>

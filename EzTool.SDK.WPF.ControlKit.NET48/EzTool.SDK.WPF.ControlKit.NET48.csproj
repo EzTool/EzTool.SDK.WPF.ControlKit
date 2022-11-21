@@ -52,6 +52,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ControlKit\CheckBoxKit\EzCheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ControlKit\FormKit\EzForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -65,6 +69,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ControlKit\FunctionBarKit\FunctionBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlKit\MenuKit\EzAutoMenuItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlKit\MenuKit\SeparatorItemDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlKit\RadioButtonKit\EzRadioButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -86,6 +102,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlKit\CheckBoxKit\EzCheckBox.cs" />
     <Compile Include="ControlKit\FormKit\EzForm.cs" />
     <Compile Include="ControlKit\FormKit\EzFormHeader.cs" />
     <Compile Include="ControlKit\FormKit\EzFormItem.cs" />
@@ -93,7 +110,10 @@
     <Compile Include="ControlKit\FormKit\EzFormTitle.cs" />
     <Compile Include="ControlKit\FunctionBarKit\FormFunctionBar.cs" />
     <Compile Include="ControlKit\FunctionBarKit\FunctionBar.cs" />
+    <Compile Include="ControlKit\MenuKit\EzAutoMenuItem.cs" />
+    <Compile Include="ControlKit\MenuKit\MenuItemContainerTemplateSelector.cs" />
     <Compile Include="ControlKit\PanelKit\EzStackPanel.cs" />
+    <Compile Include="ControlKit\RadioButtonKit\EzRadioButton.cs" />
     <Compile Include="ControlKit\ScrollViewerKit\EzScrollViewer.cs" />
     <Compile Include="ControlKit\WindowKit\EzRibbonWindow.cs" />
     <Compile Include="ControlKit\WindowKit\EzWindow.cs" />
@@ -101,6 +121,8 @@
     <Compile Include="ControlKit\WindowKit\WindowParameters.cs" />
     <Compile Include="ControlKit\WindowKit\WindowService.cs" />
     <Compile Include="ControlKit\WindowKit\WindowService.WindowCommandHelper.cs" />
+    <Compile Include="Exceptions\EzToolControlKitException.cs" />
+    <Compile Include="HumbleObjects\EmbedFileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -114,6 +136,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Utilities\BindingErrorListener.cs" />
     <Compile Include="Utilities\Chromes\SystemDropShadowChrome.cs" />
     <Compile Include="Utilities\Common\DpiHelper.cs" />
     <Compile Include="Utilities\Common\FocusService.cs" />
@@ -121,6 +144,7 @@
     <Compile Include="Utilities\Converters\BoolToObjectConverter.cs" />
     <Compile Include="Utilities\Converters\EmptyObjectToObjectConverter.cs" />
     <Compile Include="Utilities\Converters\EmptyObjectToVisibilityConverter.cs" />
+    <Compile Include="Utilities\Converters\EnumToBoolConverter.cs" />
     <Compile Include="Utilities\Converters\NullToValueConverter.cs" />
     <Compile Include="Utilities\Converters\TimesConverter.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -132,6 +156,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Exceptions\MsgTemplates\NoMenuItemTemplateMsg.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

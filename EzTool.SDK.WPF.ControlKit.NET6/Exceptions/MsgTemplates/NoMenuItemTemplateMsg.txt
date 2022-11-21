@@ -1,0 +1,7 @@
+﻿請在控制項提供 Key 為 MenuItemTemplate 的 DataTemplate 資源，可參考以下片段。
+
+ <MenuKit:EzAutoMenuItem.Resources>
+	 <DataTemplate x:Key="MenuItemTemplate" >
+		<MenuItem Header="{Binding Header}" />
+	 </DataTemplate>                        
+ </MenuKit:EzAutoMenuItem.Resources>
