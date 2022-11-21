@@ -48,7 +48,7 @@
                     ItemsSource="{Binding MenuItems}" >
                     <MenuKit:EzAutoMenuItem.Resources>
                         <DataTemplate x:Key="MenuItemTemplate" >
-                            <MenuItem Header="{Binding Header}" />
+                            <MenuKit:EzAutoMenuItem Header="{Binding Header}" />
                         </DataTemplate>                        
                     </MenuKit:EzAutoMenuItem.Resources>
                 </MenuKit:EzAutoMenuItem>
