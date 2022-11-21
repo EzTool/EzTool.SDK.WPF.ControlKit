@@ -1,10 +1,5 @@
 ﻿using System.Windows.Controls;
 using System.Windows;
-using System.IO;
-using System.Text;
-using System.Windows.Markup;
-using System.Collections.Generic;
-using EzTool.SDK.WPF.Exceptions;
 using EzTool.SDK.WPF.HumbleObjects;
 using EzTool.SDK.WPF.Utilities;
 
