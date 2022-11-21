@@ -642,13 +642,13 @@
     <Style x:Key="WindowTitleBarSeparatorStyle"
            TargetType="{x:Type Separator}">
         <Setter Property="Background"
-                Value="#FF707070" />
+                Value="White" />
         <Setter Property="BorderBrush"
                 Value="White" />
         <Setter Property="Opacity"
-                Value="0.4" />
+                Value="0.8" />
         <Setter Property="Margin"
-                Value="30,0,0,0" />
+                Value="5,6,5,6" />
         <Setter Property="Focusable"
                 Value="false" />
         <Setter Property="Template">
@@ -657,8 +657,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
-                            Width="{Binding RelativeSource={RelativeSource TemplatedParent}}" 
-                            Height="1"
+                            Width="1"
                             VerticalAlignment="Stretch"
                             SnapsToDevicePixels="true" />
                 </ControlTemplate>
