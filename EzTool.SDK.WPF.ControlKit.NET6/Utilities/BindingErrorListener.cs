@@ -11,7 +11,7 @@ namespace EzTool.SDK.WPF.Utilities
 
         #region -- 變數宣告 ( Declarations ) --   
 
-        private Action<string> logAction = new((s) => { });
+        private Action<string> logAction = new Action<string>((s) => { });
 
         #endregion
 
@@ -23,7 +23,7 @@ namespace EzTool.SDK.WPF.Utilities
                 .Add(new BindingErrorListener() { logAction = logAction });
         }
 
-        public static void Notify(string? pi_sMessage)
+        public static void Notify(string pi_sMessage)
         {
             var objListeners = PresentationTraceSources.DataBindingSource.Listeners;
 
@@ -37,8 +37,8 @@ namespace EzTool.SDK.WPF.Utilities
 
         #region -- 衍生函式 ( Protected Method ) -- 
 
-        public override void Write(string? message) { logAction.Invoke(message ?? string.Empty); }
-        public override void WriteLine(string? message) { logAction.Invoke(message ?? string.Empty); }
+        public override void Write(string message) { logAction.Invoke(message ?? string.Empty); }
+        public override void WriteLine(string message) { logAction.Invoke(message ?? string.Empty); }
 
         #endregion
 

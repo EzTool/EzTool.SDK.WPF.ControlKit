@@ -2,6 +2,7 @@
 using System.Windows;
 using EzTool.SDK.WPF.HumbleObjects;
 using EzTool.SDK.WPF.Utilities;
+using EzTool.SDK.WPF.Exceptions;
 
 namespace EzTool.SDK.WPF.ControlKit.MenuKit
 {
@@ -10,7 +11,7 @@ namespace EzTool.SDK.WPF.ControlKit.MenuKit
     /// </summary>
     public class MenuItemContainerTemplateSelector : ItemContainerTemplateSelector
     {
-        public override DataTemplate? SelectTemplate(object item, ItemsControl parentItemsControl)
+        public override DataTemplate SelectTemplate(object item, ItemsControl parentItemsControl)
         {
             if (item == null)
             {
@@ -24,36 +25,40 @@ namespace EzTool.SDK.WPF.ControlKit.MenuKit
             }
             else
             {
-                var objParentItemResources = parentItemsControl.Resources;
-                var sMenuItemTemplateKey = $@"MenuItemTemplate";
 
                 if (parentItemsControl is EzAutoMenuItem objEzAutoMenuItem)
                 {
-                    if (objEzAutoMenuItem.MenuItemTemplate == null)
-                    {
-                        sMenuItemTemplateKey = objEzAutoMenuItem.MenuItemTemplateKey;
-                    }
-                    else
+                    if (objEzAutoMenuItem.MenuItemTemplate != null)
                     {
                         return objEzAutoMenuItem.MenuItemTemplate;
                     }
-                }
-
-                if (objParentItemResources != null)
-                {
-                    var objFindResult = parentItemsControl.TryFindResource(sMenuItemTemplateKey);
-
-                    if (objFindResult != null)
+                    else if (objEzAutoMenuItem.ItemTemplate != null)
                     {
-                        return (DataTemplate)objFindResult;
+                       return  objEzAutoMenuItem.ItemTemplate;
+                    }
+                    else
+                    {
+                        var sMenuItemTemplateKey = objEzAutoMenuItem.MenuItemTemplateKey;
+                        var objParentItemResources = parentItemsControl.Resources;
+
+                        if (objParentItemResources != null)
+                        {
+                            var objFindResult = parentItemsControl.TryFindResource(sMenuItemTemplateKey);
+
+                            if (objFindResult != null)
+                            {
+                                return (DataTemplate)objFindResult;
+                            }
+                        }
                     }
                 }
             }
 
-            var sMessage = EmbedFileReader.Initial().Read($@"NoMenuItemTemplateMsg.txt");
-            BindingErrorListener.Notify(sMessage ?? string.Empty);
+            var sMessageFile = $@"NoMenuItemTemplateMsg.txt";
+            var sMessage = EmbedFileReader.Initial().Read(sMessageFile);
 
-            return null;
+            BindingErrorListener.Notify(sMessage ?? string.Empty);
+            throw new EzToolControlKitException(sMessage);            
         }
     }
 }

@@ -112,7 +112,8 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.Views.EzWindow
 
     public class EzWindowViewContext : BaseViewContext
     {
-        private ObservableCollection<MenuItemContext> l_objMenuItems = new();
+        private ObservableCollection<MenuItemContext> l_objMenuItems =
+            new ObservableCollection<MenuItemContext>();
 
         public string HashCode { get; set; } = string.Empty;
 

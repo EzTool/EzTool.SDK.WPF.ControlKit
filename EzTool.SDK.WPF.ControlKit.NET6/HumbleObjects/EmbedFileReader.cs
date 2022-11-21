@@ -25,7 +25,7 @@ namespace EzTool.SDK.WPF.HumbleObjects
 
         #region -- 靜態方法 (Shared Method ) --
 
-        public static EmbedFileReader Initial(Assembly? pi_objTargetAssembly = null)
+        public static EmbedFileReader Initial(Assembly pi_objTargetAssembly = null)
         {
             var objTargetAssembly = pi_objTargetAssembly ?? Assembly.GetCallingAssembly();
 
