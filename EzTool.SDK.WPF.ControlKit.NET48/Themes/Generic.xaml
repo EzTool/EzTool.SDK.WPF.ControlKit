@@ -8,5 +8,8 @@
         <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/FormKit/EzForm.xaml" />
         <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/RadioButtonKit/EzRadioButton.xaml" />
         <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/CheckBoxKit/EzCheckBox.xaml" />
-    </ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/EzTool.SDK.WPF.ControlKit;component/ControlKit/MenuKit/EzAutoMenuItem.xaml" />
+    </ResourceDictionary.MergedDictionaries>      
+
+   
 </ResourceDictionary>

@@ -72,6 +72,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ControlKit\MenuKit\EzAutoMenuItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlKit\MenuKit\SeparatorItemDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ControlKit\RadioButtonKit\EzRadioButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,6 +110,8 @@
     <Compile Include="ControlKit\FormKit\EzFormTitle.cs" />
     <Compile Include="ControlKit\FunctionBarKit\FormFunctionBar.cs" />
     <Compile Include="ControlKit\FunctionBarKit\FunctionBar.cs" />
+    <Compile Include="ControlKit\MenuKit\EzAutoMenuItem.cs" />
+    <Compile Include="ControlKit\MenuKit\MenuItemContainerTemplateSelector.cs" />
     <Compile Include="ControlKit\PanelKit\EzStackPanel.cs" />
     <Compile Include="ControlKit\RadioButtonKit\EzRadioButton.cs" />
     <Compile Include="ControlKit\ScrollViewerKit\EzScrollViewer.cs" />
@@ -111,6 +121,8 @@
     <Compile Include="ControlKit\WindowKit\WindowParameters.cs" />
     <Compile Include="ControlKit\WindowKit\WindowService.cs" />
     <Compile Include="ControlKit\WindowKit\WindowService.WindowCommandHelper.cs" />
+    <Compile Include="Exceptions\EzToolControlKitException.cs" />
+    <Compile Include="HumbleObjects\EmbedFileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -124,6 +136,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Utilities\BindingErrorListener.cs" />
     <Compile Include="Utilities\Chromes\SystemDropShadowChrome.cs" />
     <Compile Include="Utilities\Common\DpiHelper.cs" />
     <Compile Include="Utilities\Common\FocusService.cs" />
@@ -143,6 +156,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Exceptions\MsgTemplates\NoMenuItemTemplateMsg.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

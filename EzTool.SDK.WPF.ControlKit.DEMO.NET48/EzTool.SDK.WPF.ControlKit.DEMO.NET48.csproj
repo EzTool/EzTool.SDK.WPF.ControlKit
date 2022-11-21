@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="DEMO\Views\EzRibbonWindow\EzRibbonWindowViewModel.cs" />
     <Compile Include="DEMO\Views\EzWindow\Events\EzWindowViewFunctionBarNotifyMsgEvent.cs" />
+    <Compile Include="DEMO\Views\EzWindow\Events\EzWindowViewLoadedEvent.cs" />
     <Compile Include="DEMO\Views\EzWindow\EzWindowMainView.xaml.cs">
       <DependentUpon>EzWindowMainView.xaml</DependentUpon>
     </Compile>
@@ -112,6 +113,7 @@
       <DependentUpon>EzWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DEMO\Views\EzWindow\EzWindowViewModel.cs" />
+    <Compile Include="DEMO\Views\EzWindow\MenuItemContext.cs" />
     <Compile Include="DEMO\Views\Main\Events\MainViewLoadedEvent.cs" />
     <Compile Include="DEMO\Views\Main\Events\MainViewPopupEzRibbonWindowEvent.cs" />
     <Compile Include="DEMO\Views\Main\Events\MainViewPopupEzWindowEvent.cs" />
@@ -121,6 +123,7 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DEMO\Views\Main\MainViewModel.cs" />
+    <Compile Include="DEMO\Views\MenuItemContainerTemplateSelector.cs" />
     <Compile Include="DEMO\Views\NormalRibbonWindow\NormalRibbonWindowView.xaml.cs">
       <DependentUpon>NormalRibbonWindowView.xaml</DependentUpon>
     </Compile>

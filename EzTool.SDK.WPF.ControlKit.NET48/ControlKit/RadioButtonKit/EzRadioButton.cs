@@ -19,10 +19,6 @@ namespace EzTool.SDK.WPF.ControlKit.RadioButtonKit
     public class EzRadioButton : RadioButton
     {
 
-
-        #region -- 變數宣告 ( Declarations ) --   
-        #endregion
-
         #region -- 建構/解構 ( Constructors/Destructor ) --
 
         public EzRadioButton()

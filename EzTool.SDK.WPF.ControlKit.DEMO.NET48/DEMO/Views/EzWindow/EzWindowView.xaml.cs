@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EzTool.SDK.WPF.Utilities;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +23,13 @@ namespace EzTool.SDK.WPF.ControlKit.DEMO.Views.EzWindow
     {
         public EzWindowView()
         {
+            BindingErrorListener.Listen(OnErrorHandler);
             InitializeComponent();
+        }
+
+        private void OnErrorHandler(string pi_sMessage)
+        {
+            var sMsg = pi_sMessage;
         }
     }
 }
