@@ -37,8 +37,8 @@ namespace EzTool.SDK.WPF.Utilities
 
         #region -- 衍生函式 ( Protected Method ) -- 
 
-        public override void Write(string message) { logAction.Invoke(message); }
-        public override void WriteLine(string message) { logAction.Invoke(message); }
+        public override void Write(string? message) { logAction.Invoke(message ?? string.Empty); }
+        public override void WriteLine(string? message) { logAction.Invoke(message ?? string.Empty); }
 
         #endregion
 
