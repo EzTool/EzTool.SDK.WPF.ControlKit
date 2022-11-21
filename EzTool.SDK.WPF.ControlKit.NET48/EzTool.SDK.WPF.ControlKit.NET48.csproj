@@ -158,7 +158,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Exceptions\MsgTemplates\NoMenuItemTemplateMsg.txt" />
+    <EmbeddedResource Include="Exceptions\MsgTemplates\NoMenuItemTemplateMsg.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

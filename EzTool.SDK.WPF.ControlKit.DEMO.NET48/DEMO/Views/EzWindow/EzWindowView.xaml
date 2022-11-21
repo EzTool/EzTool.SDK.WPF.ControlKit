@@ -28,31 +28,52 @@
     <WindowKit:EzWindow.MainFunctionBar>
         <WindowKit:EzWindowFunctionBar>
             <Menu>
-                <MenuKit:EzAutoMenuItem 
-                    Header="EzAutoMenuItem-predesign" >
-                    <MenuKit:EzAutoMenuItem Header="ItemA" />
-                    <Separator />
-                    <MenuKit:EzAutoMenuItem Header="ItemB1" />
-                    <MenuKit:EzAutoMenuItem Header="ItemB2" >
-                        <MenuKit:EzAutoMenuItem Header="ItemB2-A1" />
-                        <MenuKit:EzAutoMenuItem Header="ItemB2-A2" />
-                        <Separator />
-                        <MenuKit:EzAutoMenuItem Header="ItemB2-B1" />
-                    </MenuKit:EzAutoMenuItem>
-                </MenuKit:EzAutoMenuItem>
-            </Menu>
-            <Separator />
-            <Menu>
                 <Menu.Resources>
                     <DataTemplate x:Key="ItemTemplate" >
                         <MenuKit:EzAutoMenuItem Header="{Binding Header}" />
                     </DataTemplate>
                 </Menu.Resources>
-                <MenuKit:EzAutoMenuItem 
-                    Header="EzAutoMenuItem-DynamicByBinding" 
-                    MenuItemTemplate="{StaticResource ItemTemplate}"
-                    ItemsSource="{Binding MenuItems}" >
-                </MenuKit:EzAutoMenuItem>
+                <MenuItem Header="MenuItem-Test">
+                    <MenuItem Header="Case0"
+                              ItemsSource="{Binding MenuItems}">
+                        <MenuItem.ItemTemplate>
+                            <DataTemplate>
+                                <MenuItem Header="{Binding Header}" />
+                            </DataTemplate>
+                        </MenuItem.ItemTemplate>
+                    </MenuItem>
+                    <MenuKit:EzAutoMenuItem Header="Case1"
+                                            ItemsSource="{Binding MenuItems}" >
+                        <MenuKit:EzAutoMenuItem.ItemTemplate>
+                            <DataTemplate >
+                                <MenuItem Header="{Binding Header}" />
+                            </DataTemplate>
+                        </MenuKit:EzAutoMenuItem.ItemTemplate>
+                    </MenuKit:EzAutoMenuItem>
+                    <MenuKit:EzAutoMenuItem
+                        Header="Case2"
+                        MenuItemTemplate="{StaticResource ItemTemplate}"
+                        ItemsSource="{Binding MenuItems}" />
+                    <MenuKit:EzAutoMenuItem
+                        Header="Case3"                        
+                        ItemsSource="{Binding MenuItems}" >
+                        <MenuKit:EzAutoMenuItem.Resources>
+                            <DataTemplate x:Key="MenuItemTemplate" >
+                                <MenuKit:EzAutoMenuItem Header="{Binding Header}" />
+                            </DataTemplate>
+                        </MenuKit:EzAutoMenuItem.Resources>
+                    </MenuKit:EzAutoMenuItem>
+                    <MenuKit:EzAutoMenuItem
+                        Header="Case4"                        
+                        MenuItemTemplateKey="MyMenuItemTemplate"
+                        ItemsSource="{Binding MenuItems}" >
+                        <MenuKit:EzAutoMenuItem.Resources>
+                            <DataTemplate x:Key="MyMenuItemTemplate" >
+                                <MenuKit:EzAutoMenuItem Header="{Binding Header}" />
+                            </DataTemplate>
+                        </MenuKit:EzAutoMenuItem.Resources>
+                    </MenuKit:EzAutoMenuItem>
+                </MenuItem>
             </Menu>
             <Separator />
             <Menu>
@@ -70,73 +91,26 @@
                     </MenuKit:EzAutoMenuItem>
                 </MenuItem>
             </Menu>
-
-            <!--<Menu>
-                <MenuItem Header="EzAutoMenuItem" >
-                    <MenuItem Header="Itam1" />
+            <Separator />
+            <Menu>
+                <MenuKit:EzAutoMenuItem 
+                    Header="EzAutoMenuItem-predesign" >
+                    <MenuKit:EzAutoMenuItem Header="ItemA" />
                     <Separator />
-                    <MenuKit:EzAutoMenuItem Header="ItemA" >
-                        <MenuKit:EzAutoMenuItem Header="ItemA1" />
-                        <MenuKit:EzAutoMenuItem Header="ItemA2" />
-                    </MenuKit:EzAutoMenuItem>
-                </MenuItem>
-            </Menu>-->
-
-            <!--<Menu >
-                <MenuItem Header="外掛項目"
-                    ItemsSource="{Binding MenuItems}">
-                    <MenuItem.Resources>
-                        <Style TargetType="{x:Type MenuItem}">
-                            <Setter Property="Header" Value="{Binding Header}" />
-                            <Setter Property="Command" Value="{Binding Command}" />
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding }" 
-                                             Value="{x:Null}">
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="{x:Type MenuItem}">
-                                                <Separator />
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </MenuItem.Resources>
-                </MenuItem>
-            </Menu>-->
-            <!--<Menu UsesItemContainerTemplate="True">
-                <MenuItem Header="外掛功能"
-                          ItemsSource="{Binding MenuItems}"
-                          UsesItemContainerTemplate="True"
-                          ItemContainerTemplateSelector = "{StaticResource _menuItemContainerTemplateSelector}" >
-                    <MenuItem.Resources>
-                        <DataTemplate x:Key="SeparaterItemTemplate">
-                            <Separator />
-                        </DataTemplate>
-                        <DataTemplate x:Key="MenuItemTemplate">
-                            <MenuItem Header="{Binding Header}" />
-                        </DataTemplate>
-                    </MenuItem.Resources>
-                </MenuItem>
-            </Menu>-->
-            <!--<Menu FontSize="12" FontFamily="Microsoft JhengHei">
-                <MenuItem Header="檔案" >
-                    <MenuItem Header="新增檔案" />
-                    <Separator />
-                    <MenuItem Header="常用檔案" >
-                        <MenuItem Header="檔案A" />
+                    <MenuKit:EzAutoMenuItem Header="ItemB1" />
+                    <MenuKit:EzAutoMenuItem Header="ItemB2" >
+                        <MenuKit:EzAutoMenuItem Header="ItemB2-A1" />
+                        <MenuKit:EzAutoMenuItem Header="ItemB2-A2" />
                         <Separator />
-                        <MenuItem Header="檔案B" />
-                        <MenuItem Header="檔案C" />
-                    </MenuItem>
-                </MenuItem>
-            </Menu>-->
-            <!--<Separator />
+                        <MenuKit:EzAutoMenuItem Header="ItemB2-B1" />
+                    </MenuKit:EzAutoMenuItem>
+                </MenuKit:EzAutoMenuItem>
+            </Menu>
+            <Separator />
             <Button Content="MSG" 
                     Command="{Binding RelayCommand}" 
                     CommandParameter="EzWindowViewFunctionBarNotifyMsgEvent" />
-            <Separator />-->
+            <Separator />
         </WindowKit:EzWindowFunctionBar>
     </WindowKit:EzWindow.MainFunctionBar>
     <WindowKit:EzWindow.FunctionBar>
