@@ -10,15 +10,15 @@ namespace EzTool.SDK.WPF.HumbleObjects
 
         #region -- 變數宣告 ( Declarations ) --   
 
-        private Assembly l_objTargetAssembly;
+        private readonly Assembly l_objTargetAssembly;
 
         #endregion
 
         #region -- 建構/解構 ( Constructors/Destructor ) --
 
-        public EmbedFileReader(Assembly pi_objTargetAssembly)
+        private EmbedFileReader(Assembly pi_objTargetAssembly)
         {
-            this.l_objTargetAssembly = pi_objTargetAssembly;
+            l_objTargetAssembly = pi_objTargetAssembly;
         }
 
         #endregion
@@ -38,22 +38,28 @@ namespace EzTool.SDK.WPF.HumbleObjects
 
         public string Read(string pi_sFileName)
         {
-            return Read(new Func<string, bool>((sResourceKey) =>
-            {
-                return sResourceKey.EndsWith(pi_sFileName);
-            }));
+            var objDefaultCheck = new Func<string, bool>(
+                (sKey) =>
+                {
+                    return sKey.EndsWith(pi_sFileName);
+                });
+
+            return Read(objDefaultCheck);
         }
+
         public string Read(Func<string, bool> pi_objCondition)
         {
             var sReturn = string.Empty;
-            var objCondition = pi_objCondition ?? new Func<string, bool>((sName) => { return false; });
-            var sResourceName = l_objTargetAssembly.GetManifestResourceNames().Single(objCondition);
+            var objIsThisResource = pi_objCondition ?? new Func<string, bool>((sName) => { return false; });
+            var sTargetResourceName = l_objTargetAssembly.GetManifestResourceNames().Single(objIsThisResource);
 
-            if (string.IsNullOrEmpty(sResourceName) == false)
+            if (string.IsNullOrEmpty(sTargetResourceName) == false)
             {
-                var objStream = l_objTargetAssembly.GetManifestResourceStream(sResourceName);
+                var objStream = l_objTargetAssembly.GetManifestResourceStream(sTargetResourceName);
 
-                sReturn = objStream != null ? new StreamReader(objStream).ReadToEnd() : String.Empty;
+                sReturn = objStream != null ? 
+                    new StreamReader(objStream).ReadToEnd() : 
+                    string.Empty;
             }
 
             return sReturn;
