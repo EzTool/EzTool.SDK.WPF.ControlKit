@@ -23,13 +23,13 @@ namespace EzTool.SDK.WPF.Utilities
                 .Add(new BindingErrorListener() { logAction = logAction });
         }
 
-        public static void Notify(string pi_sMessage)
+        public static void Notify(string? pi_sMessage)
         {
             var objListeners = PresentationTraceSources.DataBindingSource.Listeners;
 
             foreach (TraceListener objListener in objListeners)
             {
-                objListener.WriteLine(pi_sMessage);
+                objListener.WriteLine(pi_sMessage ?? string.Empty);
             }
         }
 
