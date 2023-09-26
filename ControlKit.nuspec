@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>EzTool.SDK.WPF.ControlKit</id>
-		<version>1.0.2</version>
+		<version>2.0.0</version>
 		<authors>EzTool.RD</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<license type="expression">MIT</license>
@@ -12,21 +12,21 @@
 			提供 WPF 自訂控制項。
 		</description>
 		<releaseNotes>
-			# 1.0.2
-			# 1.0.0.3-alpha
-			提供 framework 4.8 版本支援。
-			# 1.0.1-alpha 
-			初始工程版本
+      
 		</releaseNotes>
 		<copyright>@ 2022</copyright>
 		<dependencies>
-			<group targetFramework="net6.0">
-				<dependency id="Microsoft.Xaml.Behaviors.Wpf" version="1.1.39" />				
-			</group>			
+      <group targetFramework="NETCORE6.0" >
+				<dependency id="Microsoft.Xaml.Behaviors.Wpf" version="1.1.39" />				        
+      </group>
+      <group targetFramework="NETCOREAPP6.0" >
+        <dependency id="Microsoft.Xaml.Behaviors.Wpf" version="1.1.39" />
+      </group>
 		</dependencies>
 	</metadata>
 	<files>
 		<file src="_images/icon.png" target="" />
-		<file src="_lib\net6.0-windows\EzTool.SDK.WPF.ControlKit.*" target="lib\net6.0" />
+		<file src="_lib\net6.0-windows\EzTool.SDK.WPF.ControlKit.*" target="lib\netcore6.0" />
+    <file src="_lib\net6.0-windows\EzTool.SDK.WPF.ControlKit.*" target="lib\netcoreapp6.0" />
 	</files>
 </package>

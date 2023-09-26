@@ -53,6 +53,45 @@ namespace EzTool.SDK.WPF.ControlKit.FormKit
 
         #region -- 屬性 ( Properties ) --
 
+        #region LabelVerticalAlignment
+
+        /// <summary>
+        /// 获取或设置LabelVerticalAlignment的值
+        /// </summary>  
+        public VerticalAlignment LabelVerticalAlignment
+        {
+            get => (VerticalAlignment)GetValue(LabelVerticalAlignmentProperty);
+            set => SetValue(LabelVerticalAlignmentProperty, value);
+        }
+
+        /// <summary>
+        /// 标识 LabelVerticalAlignment 依赖属性。
+        /// </summary>
+        public static readonly DependencyProperty LabelVerticalAlignmentProperty =
+            DependencyProperty.Register(nameof(LabelVerticalAlignment), typeof(VerticalAlignment), typeof(EzFormItem), new PropertyMetadata(default(VerticalAlignment), OnLabelVerticalAlignmentChanged));
+
+        private static void OnLabelVerticalAlignmentChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
+        {
+            var oldValue = (VerticalAlignment)args.OldValue;
+            var newValue = (VerticalAlignment)args.NewValue;
+            if (oldValue == newValue)
+                return;
+
+            var target = obj as EzFormItem;
+            target?.OnLabelVerticalAlignmentChanged(oldValue, newValue);
+        }
+
+        /// <summary>
+        /// LabelVerticalAlignment 属性更改时调用此方法。
+        /// </summary>
+        /// <param name="oldValue">LabelVerticalAlignment 属性的旧值。</param>
+        /// <param name="newValue">LabelVerticalAlignment 属性的新值。</param>
+        protected virtual void OnLabelVerticalAlignmentChanged(VerticalAlignment oldValue, VerticalAlignment newValue)
+        {
+        }
+
+        #endregion
+
         #region IsRequiredProperty
 
         public bool IsRequired
